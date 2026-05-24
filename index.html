@@ -89,7 +89,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
     <div style="display:flex;align-items:center;gap:10px">
       <div class="ts">
         <div style="color:var(--g);font-weight:700">✅ 引け後データ（確定値）</div>
-        <div>取得: 2026/05/24 12:03 JST</div>
+        <div>取得: 2026/05/24 12:18 JST</div>
       </div>
       <button class="qr-btn" onclick="showQR()">📱 QR</button>
     </div>
@@ -104,7 +104,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
         <div class="as">yfinance 取得 / 前日終値比 1日騰落率 / 構成銘柄の単純平均</div>
       </div>
     </div>
-    <div class="ar">データ更新: 2026/05/24 12:03 JST</div>
+    <div class="ar">データ更新: 2026/05/24 12:18 JST</div>
   </div>
 </div>
 <div class="stats">
@@ -114,7 +114,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
 </div>
 <div class="tabs">
   <button class="tab hot" id="th" onclick="sw('hot')">🔥 人気テーマ <span class="ta">+1.47%</span></button>
-  <button class="tab" id="tc" onclick="sw('cold')">🧊 不人気テーマ <span class="ta">-0.02%</span></button>
+  <button class="tab" id="tc" onclick="sw('cold')">🧊 不人気テーマ <span class="ta">-0.03%</span></button>
 </div>
 <div class="ch">
   <span class="cl">#</span>
@@ -632,7 +632,6 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
 <div class="disc">
   ⚠️ 本ページは情報提供目的のみ。騰落率は yfinance 経由の参考値（前日終値比）。テーマ平均は構成銘柄の単純平均。投資は自己判断・自己責任で。
 </div>
-<!-- QR モーダル -->
 <div id="qr-overlay" style="display:none" onclick="hideQR()">
   <div id="qr-box" onclick="event.stopPropagation()">
     <h3>📱 スマホで開く</h3>
@@ -649,7 +648,6 @@ function sw(t){
   document.getElementById('th').className='tab'+(t==='hot'?' hot':'');
   document.getElementById('tc').className='tab'+(t==='cold'?' cold':'');
 }
-
 let qrGenerated = false;
 function showQR() {
   const url = window.location.href;
