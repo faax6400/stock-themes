@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>米国株テーマランキング 2026-05-24｜ミラートレード用引け後データ</title>
+<style>
+:root{--bg:#0a0a0f;--sf:#12121a;--sf2:#1c1c28;--bd:#252535;--tx:#e8e8f0;--tm:#6a6a8a;--td:#3a3a5a;
+--g:#00d084;--gb:rgba(0,208,132,.1);--r:#ff4d6a;--rb:rgba(255,77,106,.1);
+--ac:#7c6ff7;--ye:#f7c06f;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;min-height:100vh}
+header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.hi{max-width:860px;margin:0 auto;padding:0 18px;height:54px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.lb{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#7c6ff7,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:15px}
+.lt{font-size:14px;font-weight:700}
+.ts{font-size:11px;color:var(--tm);text-align:right}
+.qr-btn{background:var(--sf2);border:1px solid var(--bd);color:var(--tm);border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;white-space:nowrap}
+.qr-btn:hover{border-color:var(--ac);color:var(--ac)}
+#qr-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center}
+#qr-box{background:var(--sf);border:1px solid var(--bd);border-radius:20px;padding:28px;text-align:center;z-index:201;max-width:280px;width:90%}
+#qr-box h3{font-size:15px;margin-bottom:16px;color:var(--tx)}
+#qr-code{display:flex;justify-content:center;margin-bottom:14px}
+#qr-code canvas{border-radius:8px}
+#qr-url{font-size:11px;color:var(--tm);word-break:break-all;margin-bottom:16px;background:var(--sf2);padding:8px;border-radius:8px}
+#qr-close{background:var(--ac);border:none;color:#fff;border-radius:8px;padding:8px 20px;font-size:13px;cursor:pointer;font-weight:600}
+.ab{max-width:860px;margin:14px auto 0;padding:0 18px}
+.ai{border-radius:12px;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;background:rgba(124,111,247,.08);border:1px solid rgba(124,111,247,.3)}
+.al{display:flex;align-items:center;gap:10px}
+.ad{width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.alb{font-size:13px;font-weight:700;color:var(--ac)}
+.as{font-size:11px;color:var(--tm)}
+.ar{font-size:11px;color:var(--tm)}
+.stats{max-width:860px;margin:12px auto 0;padding:0 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:11px 14px;text-align:center}
+.sv{font-size:20px;font-weight:800;line-height:1}
+.sv.pos{color:var(--g)} .sv.neg{color:var(--r)} .sv.neu{color:var(--ac)}
+.sl{font-size:10px;color:var(--tm);margin-top:4px}
+.tabs{max-width:860px;margin:14px auto 0;padding:0 18px;display:flex;gap:8px}
+.tab{flex:1;padding:11px 8px;border-radius:12px;border:1px solid var(--bd);background:var(--sf);color:var(--tm);font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab.hot{background:var(--gb);border-color:var(--g);color:var(--g)}
+.tab.cold{background:var(--rb);border-color:var(--r);color:var(--r)}
+.ta{font-size:12px;font-weight:800;padding:1px 7px;border-radius:20px;background:currentColor;color:var(--bg);opacity:.9}
+.ch{max-width:860px;margin:14px auto 5px;padding:0 18px;display:grid;grid-template-columns:44px 1fr 106px;gap:10px}
+.cl{font-size:10px;color:var(--td);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.rl{max-width:860px;margin:0 auto 40px;padding:0 18px}
+.panel{display:none} .panel.active{display:block}
+.item{position:relative;overflow:hidden;display:grid;grid-template-columns:44px 1fr 106px;align-items:center;gap:10px;padding:13px 14px;border-radius:14px;border:1px solid transparent;background:var(--sf);margin-bottom:5px;transition:all .15s}
+.item:hover{border-color:var(--bd);background:var(--sf2);transform:translateY(-1px)}
+.item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.item.hot::before{background:var(--g)} .item.cold::before{background:var(--r)}
+.bg-bar{position:absolute;top:0;right:0;bottom:0;pointer-events:none;border-radius:0 14px 14px 0;opacity:.055}
+.item.hot .bg-bar{background:linear-gradient(90deg,transparent,var(--g))}
+.item.cold .bg-bar{background:linear-gradient(90deg,transparent,var(--r))}
+.rn{width:44px;text-align:center;font-size:18px;font-weight:800;color:var(--td);z-index:1}
+.ti{z-index:1;min-width:0}
+.tn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;margin-bottom:6px;line-height:1.2}
+.tic{font-size:15px;flex-shrink:0}
+.tnt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 6px 2px 7px;border-radius:6px;background:var(--sf2);border:1px solid var(--bd);color:var(--tm);text-decoration:none;cursor:pointer;transition:all .15s}
+.chip:hover{background:var(--bd);transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.chip.pos-chip{border-color:rgba(0,208,132,.25)} .chip.neg-chip{border-color:rgba(255,77,106,.25)}
+.chip.pos-chip:hover{border-color:rgba(0,208,132,.6);background:rgba(0,208,132,.08)}
+.chip.neg-chip:hover{border-color:rgba(255,77,106,.6);background:rgba(255,77,106,.08)}
+.tkr{letter-spacing:.3px}
+.chg{font-weight:700}
+.chg.pos{color:var(--g)} .chg.neg{color:var(--r)} .chg.dim{color:var(--td)}
+.ret{z-index:1;text-align:right}
+.rp{font-size:20px;font-weight:800;letter-spacing:-.5px;line-height:1}
+.rp.pos{color:var(--g)} .rp.neg{color:var(--r)} .rp.dim{color:var(--td);font-size:14px}
+.rl{font-size:10px;color:var(--td);margin-top:3px}
+.disc{max-width:860px;margin:0 auto 40px;padding:16px 18px 0;border-top:1px solid var(--bd);font-size:11px;color:var(--td);line-height:1.7}
+@media(max-width:560px){
+  .item{grid-template-columns:32px 1fr 82px;padding:11px 10px}
+  .rn{width:32px;font-size:14px}
+  .rp{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hi">
+    <div class="logo">
+      <div class="lb">📊</div>
+      <span class="lt">米国株テーマランキング</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="ts">
+        <div style="color:var(--g);font-weight:700">✅ 引け後データ（確定値）</div>
+        <div>取得: 2026/05/24 12:03 JST</div>
+      </div>
+      <button class="qr-btn" onclick="showQR()">📱 QR</button>
+    </div>
+  </div>
+</header>
+<div class="ab">
+  <div class="ai">
+    <div class="al">
+      <div class="ad"></div>
+      <div>
+        <div class="alb">⚡ US市場引け後データ — 東京市場ミラートレード用</div>
+        <div class="as">yfinance 取得 / 前日終値比 1日騰落率 / 構成銘柄の単純平均</div>
+      </div>
+    </div>
+    <div class="ar">データ更新: 2026/05/24 12:03 JST</div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="sv pos">⚛️  +8.26%</div><div class="sl">本日最強テーマ</div></div>
+  <div class="stat"><div class="sv neg">🇨🇳 -3.44%</div><div class="sl">本日最弱テーマ</div></div>
+  <div class="stat"><div class="sv neu">40</div><div class="sl">追跡テーマ数</div></div>
+</div>
+<div class="tabs">
+  <button class="tab hot" id="th" onclick="sw('hot')">🔥 人気テーマ <span class="ta">+1.47%</span></button>
+  <button class="tab" id="tc" onclick="sw('cold')">🧊 不人気テーマ <span class="ta">-0.02%</span></button>
+</div>
+<div class="ch">
+  <span class="cl">#</span>
+  <span class="cl">テーマ / 銘柄（前日比）</span>
+  <span class="cl" style="text-align:right">テーマ平均</span>
+</div>
+<div class="rl">
+  <div class="panel active" id="ph">
+<div class="item hot">
+  <div class="bg-bar" style="width:66.08%"></div>
+  <div class="rn">🥇</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">⚛️</span><span class="tnt">量子コンピュータ</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/IONQ" target="_blank" class="chip pos-chip"><span class="tkr">IONQ</span><span class="chg pos">+8.07%</span></a><a href="https://finance.yahoo.com/quote/RGTI" target="_blank" class="chip pos-chip"><span class="tkr">RGTI</span><span class="chg pos">+19.87%</span></a><a href="https://finance.yahoo.com/quote/QBTS" target="_blank" class="chip pos-chip"><span class="tkr">QBTS</span><span class="chg pos">+14.22%</span></a><a href="https://finance.yahoo.com/quote/IBM" target="_blank" class="chip pos-chip"><span class="tkr">IBM</span><span class="chg pos">+0.34%</span></a><a href="https://finance.yahoo.com/quote/GOOGL" target="_blank" class="chip neg-chip"><span class="tkr">GOOGL</span><span class="chg neg">-1.21%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+8.26%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:47.84%"></div>
+  <div class="rn">🥈</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚀</span><span class="tnt">宇宙開発・衛星</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/RKLB" target="_blank" class="chip pos-chip"><span class="tkr">RKLB</span><span class="chg pos">+8.22%</span></a><a href="https://finance.yahoo.com/quote/ASTS" target="_blank" class="chip pos-chip"><span class="tkr">ASTS</span><span class="chg pos">+10.01%</span></a><a href="https://finance.yahoo.com/quote/LUNR" target="_blank" class="chip pos-chip"><span class="tkr">LUNR</span><span class="chg pos">+11.74%</span></a><a href="https://finance.yahoo.com/quote/BA" target="_blank" class="chip neg-chip"><span class="tkr">BA</span><span class="chg neg">-0.27%</span></a><a href="https://finance.yahoo.com/quote/BWXT" target="_blank" class="chip pos-chip"><span class="tkr">BWXT</span><span class="chg pos">+0.19%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+5.98%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:29.76%"></div>
+  <div class="rn">🥉</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔒</span><span class="tnt">サイバーセキュリティ</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/CRWD" target="_blank" class="chip pos-chip"><span class="tkr">CRWD</span><span class="chg pos">+2.35%</span></a><a href="https://finance.yahoo.com/quote/PANW" target="_blank" class="chip pos-chip"><span class="tkr">PANW</span><span class="chg pos">+3.03%</span></a><a href="https://finance.yahoo.com/quote/ZS" target="_blank" class="chip pos-chip"><span class="tkr">ZS</span><span class="chg pos">+6.64%</span></a><a href="https://finance.yahoo.com/quote/FTNT" target="_blank" class="chip pos-chip"><span class="tkr">FTNT</span><span class="chg pos">+3.45%</span></a><a href="https://finance.yahoo.com/quote/OKTA" target="_blank" class="chip pos-chip"><span class="tkr">OKTA</span><span class="chg pos">+3.13%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+3.72%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:22.24%"></div>
+  <div class="rn">4</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚗</span><span class="tnt">自律走行・モビリティ</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/TSLA" target="_blank" class="chip pos-chip"><span class="tkr">TSLA</span><span class="chg pos">+1.95%</span></a><a href="https://finance.yahoo.com/quote/UBER" target="_blank" class="chip neg-chip"><span class="tkr">UBER</span><span class="chg neg">-2.43%</span></a><a href="https://finance.yahoo.com/quote/LYFT" target="_blank" class="chip pos-chip"><span class="tkr">LYFT</span><span class="chg pos">+3.12%</span></a><a href="https://finance.yahoo.com/quote/GM" target="_blank" class="chip pos-chip"><span class="tkr">GM</span><span class="chg pos">+2.05%</span></a><a href="https://finance.yahoo.com/quote/F" target="_blank" class="chip pos-chip"><span class="tkr">F</span><span class="chg pos">+9.22%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+2.78%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:20.4%"></div>
+  <div class="rn">5</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔋</span><span class="tnt">蓄電池・エネルギー貯蓄</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/TSLA" target="_blank" class="chip pos-chip"><span class="tkr">TSLA</span><span class="chg pos">+1.95%</span></a><a href="https://finance.yahoo.com/quote/ENPH" target="_blank" class="chip pos-chip"><span class="tkr">ENPH</span><span class="chg pos">+2.71%</span></a><a href="https://finance.yahoo.com/quote/FLNC" target="_blank" class="chip pos-chip"><span class="tkr">FLNC</span><span class="chg pos">+6.44%</span></a><a href="https://finance.yahoo.com/quote/STEM" target="_blank" class="chip pos-chip"><span class="tkr">STEM</span><span class="chg pos">+3.39%</span></a><a href="https://finance.yahoo.com/quote/BE" target="_blank" class="chip neg-chip"><span class="tkr">BE</span><span class="chg neg">-1.75%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+2.55%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:17.12%"></div>
+  <div class="rn">6</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">⚡</span><span class="tnt">電力インフラ・グリッド</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/ETN" target="_blank" class="chip pos-chip"><span class="tkr">ETN</span><span class="chg pos">+2.58%</span></a><a href="https://finance.yahoo.com/quote/GEV" target="_blank" class="chip neg-chip"><span class="tkr">GEV</span><span class="chg neg">-0.49%</span></a><a href="https://finance.yahoo.com/quote/VST" target="_blank" class="chip pos-chip"><span class="tkr">VST</span><span class="chg pos">+4.82%</span></a><a href="https://finance.yahoo.com/quote/CEG" target="_blank" class="chip pos-chip"><span class="tkr">CEG</span><span class="chg pos">+2.88%</span></a><a href="https://finance.yahoo.com/quote/PWR" target="_blank" class="chip pos-chip"><span class="tkr">PWR</span><span class="chg pos">+0.91%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+2.14%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:12.48%"></div>
+  <div class="rn">7</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">☢️</span><span class="tnt">原子力エネルギー</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/CEG" target="_blank" class="chip pos-chip"><span class="tkr">CEG</span><span class="chg pos">+2.88%</span></a><a href="https://finance.yahoo.com/quote/VST" target="_blank" class="chip pos-chip"><span class="tkr">VST</span><span class="chg pos">+4.82%</span></a><a href="https://finance.yahoo.com/quote/CCJ" target="_blank" class="chip neg-chip"><span class="tkr">CCJ</span><span class="chg neg">-0.55%</span></a><a href="https://finance.yahoo.com/quote/NRG" target="_blank" class="chip pos-chip"><span class="tkr">NRG</span><span class="chg pos">+0.53%</span></a><a href="https://finance.yahoo.com/quote/ETR" target="_blank" class="chip pos-chip"><span class="tkr">ETR</span><span class="chg pos">+0.12%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.56%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:11.76%"></div>
+  <div class="rn">8</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🦾</span><span class="tnt">ロボティクス・自動化</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/ISRG" target="_blank" class="chip neg-chip"><span class="tkr">ISRG</span><span class="chg neg">-0.39%</span></a><a href="https://finance.yahoo.com/quote/PATH" target="_blank" class="chip pos-chip"><span class="tkr">PATH</span><span class="chg pos">+3.41%</span></a><a href="https://finance.yahoo.com/quote/TER" target="_blank" class="chip pos-chip"><span class="tkr">TER</span><span class="chg pos">+1.41%</span></a><a href="https://finance.yahoo.com/quote/RRX" target="_blank" class="chip pos-chip"><span class="tkr">RRX</span><span class="chg pos">+2.24%</span></a><a href="https://finance.yahoo.com/quote/TRMB" target="_blank" class="chip pos-chip"><span class="tkr">TRMB</span><span class="chg pos">+0.66%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.47%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:11.68%"></div>
+  <div class="rn">9</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏛️</span><span class="tnt">国防テック・DIU</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/PLTR" target="_blank" class="chip neg-chip"><span class="tkr">PLTR</span><span class="chg neg">-0.39%</span></a><a href="https://finance.yahoo.com/quote/AXON" target="_blank" class="chip neg-chip"><span class="tkr">AXON</span><span class="chg neg">-0.99%</span></a><a href="https://finance.yahoo.com/quote/CACI" target="_blank" class="chip pos-chip"><span class="tkr">CACI</span><span class="chg pos">+2.30%</span></a><a href="https://finance.yahoo.com/quote/LDOS" target="_blank" class="chip pos-chip"><span class="tkr">LDOS</span><span class="chg pos">+2.41%</span></a><a href="https://finance.yahoo.com/quote/SAIC" target="_blank" class="chip pos-chip"><span class="tkr">SAIC</span><span class="chg pos">+3.99%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.46%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:8.16%"></div>
+  <div class="rn">10</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🌐</span><span class="tnt">デジタル広告</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/META" target="_blank" class="chip pos-chip"><span class="tkr">META</span><span class="chg pos">+0.47%</span></a><a href="https://finance.yahoo.com/quote/GOOGL" target="_blank" class="chip neg-chip"><span class="tkr">GOOGL</span><span class="chg neg">-1.21%</span></a><a href="https://finance.yahoo.com/quote/AMZN" target="_blank" class="chip neg-chip"><span class="tkr">AMZN</span><span class="chg neg">-0.80%</span></a><a href="https://finance.yahoo.com/quote/TTD" target="_blank" class="chip pos-chip"><span class="tkr">TTD</span><span class="chg pos">+5.17%</span></a><a href="https://finance.yahoo.com/quote/PUBM" target="_blank" class="chip pos-chip"><span class="tkr">PUBM</span><span class="chg pos">+1.47%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.02%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:6.72%"></div>
+  <div class="rn">11</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💊</span><span class="tnt">GLP-1・肥満治療薬</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/LLY" target="_blank" class="chip pos-chip"><span class="tkr">LLY</span><span class="chg pos">+2.24%</span></a><a href="https://finance.yahoo.com/quote/NVO" target="_blank" class="chip pos-chip"><span class="tkr">NVO</span><span class="chg pos">+1.28%</span></a><a href="https://finance.yahoo.com/quote/VKTX" target="_blank" class="chip pos-chip"><span class="tkr">VKTX</span><span class="chg pos">+0.68%</span></a><a href="https://finance.yahoo.com/quote/AMGN" target="_blank" class="chip pos-chip"><span class="tkr">AMGN</span><span class="chg pos">+0.56%</span></a><a href="https://finance.yahoo.com/quote/REGN" target="_blank" class="chip neg-chip"><span class="tkr">REGN</span><span class="chg neg">-0.58%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.84%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:6.32%"></div>
+  <div class="rn">12</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🛡️</span><span class="tnt">防衛・宇宙航空</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/LMT" target="_blank" class="chip pos-chip"><span class="tkr">LMT</span><span class="chg pos">+2.00%</span></a><a href="https://finance.yahoo.com/quote/RTX" target="_blank" class="chip pos-chip"><span class="tkr">RTX</span><span class="chg pos">+1.00%</span></a><a href="https://finance.yahoo.com/quote/NOC" target="_blank" class="chip pos-chip"><span class="tkr">NOC</span><span class="chg pos">+0.73%</span></a><a href="https://finance.yahoo.com/quote/GD" target="_blank" class="chip pos-chip"><span class="tkr">GD</span><span class="chg pos">+1.23%</span></a><a href="https://finance.yahoo.com/quote/AXON" target="_blank" class="chip neg-chip"><span class="tkr">AXON</span><span class="chg neg">-0.99%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.79%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:5.92%"></div>
+  <div class="rn">13</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏦</span><span class="tnt">投資銀行・大手金融</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/JPM" target="_blank" class="chip pos-chip"><span class="tkr">JPM</span><span class="chg pos">+1.12%</span></a><a href="https://finance.yahoo.com/quote/GS" target="_blank" class="chip pos-chip"><span class="tkr">GS</span><span class="chg pos">+0.87%</span></a><a href="https://finance.yahoo.com/quote/MS" target="_blank" class="chip pos-chip"><span class="tkr">MS</span><span class="chg pos">+0.26%</span></a><a href="https://finance.yahoo.com/quote/BAC" target="_blank" class="chip pos-chip"><span class="tkr">BAC</span><span class="chg pos">+0.60%</span></a><a href="https://finance.yahoo.com/quote/BLK" target="_blank" class="chip pos-chip"><span class="tkr">BLK</span><span class="chg pos">+0.87%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.74%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:3.92%"></div>
+  <div class="rn">14</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏗️</span><span class="tnt">インフラ・建機</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/CAT" target="_blank" class="chip pos-chip"><span class="tkr">CAT</span><span class="chg pos">+1.61%</span></a><a href="https://finance.yahoo.com/quote/DE" target="_blank" class="chip neg-chip"><span class="tkr">DE</span><span class="chg neg">-0.41%</span></a><a href="https://finance.yahoo.com/quote/VMC" target="_blank" class="chip neg-chip"><span class="tkr">VMC</span><span class="chg neg">-0.35%</span></a><a href="https://finance.yahoo.com/quote/URI" target="_blank" class="chip pos-chip"><span class="tkr">URI</span><span class="chg pos">+0.69%</span></a><a href="https://finance.yahoo.com/quote/PWR" target="_blank" class="chip pos-chip"><span class="tkr">PWR</span><span class="chg pos">+0.91%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.49%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:2.64%"></div>
+  <div class="rn">15</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💾</span><span class="tnt">半導体・チップ</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/NVDA" target="_blank" class="chip neg-chip"><span class="tkr">NVDA</span><span class="chg neg">-1.90%</span></a><a href="https://finance.yahoo.com/quote/AMD" target="_blank" class="chip pos-chip"><span class="tkr">AMD</span><span class="chg pos">+3.99%</span></a><a href="https://finance.yahoo.com/quote/AVGO" target="_blank" class="chip neg-chip"><span class="tkr">AVGO</span><span class="chg neg">-0.10%</span></a><a href="https://finance.yahoo.com/quote/MU" target="_blank" class="chip neg-chip"><span class="tkr">MU</span><span class="chg neg">-1.46%</span></a><a href="https://finance.yahoo.com/quote/AMAT" target="_blank" class="chip pos-chip"><span class="tkr">AMAT</span><span class="chg pos">+1.12%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.33%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:1.92%"></div>
+  <div class="rn">16</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💡</span><span class="tnt">光・フォトニクス（光ネットワーク）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/CIEN" target="_blank" class="chip neg-chip"><span class="tkr">CIEN</span><span class="chg neg">-0.59%</span></a><a href="https://finance.yahoo.com/quote/LITE" target="_blank" class="chip neg-chip"><span class="tkr">LITE</span><span class="chg neg">-1.82%</span></a><a href="https://finance.yahoo.com/quote/COHR" target="_blank" class="chip neg-chip"><span class="tkr">COHR</span><span class="chg neg">-0.11%</span></a><a href="https://finance.yahoo.com/quote/AAOI" target="_blank" class="chip pos-chip"><span class="tkr">AAOI</span><span class="chg pos">+2.65%</span></a><a href="https://finance.yahoo.com/quote/VIAV" target="_blank" class="chip pos-chip"><span class="tkr">VIAV</span><span class="chg pos">+1.08%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.24%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:1.52%"></div>
+  <div class="rn">17</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏥</span><span class="tnt">ヘルスケアAI・デジタル医療</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/ISRG" target="_blank" class="chip neg-chip"><span class="tkr">ISRG</span><span class="chg neg">-0.39%</span></a><a href="https://finance.yahoo.com/quote/VEEV" target="_blank" class="chip pos-chip"><span class="tkr">VEEV</span><span class="chg pos">+1.20%</span></a><a href="https://finance.yahoo.com/quote/DXCM" target="_blank" class="chip pos-chip"><span class="tkr">DXCM</span><span class="chg pos">+0.28%</span></a><a href="https://finance.yahoo.com/quote/GEHC" target="_blank" class="chip neg-chip"><span class="tkr">GEHC</span><span class="chg neg">-0.16%</span></a><a href="https://finance.yahoo.com/quote/TDOC" target="_blank" class="chip pos-chip"><span class="tkr">TDOC</span><span class="chg pos">+0.00%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.19%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:0.88%"></div>
+  <div class="rn">18</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🧠</span><span class="tnt">HBM・高帯域メモリ</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/MU" target="_blank" class="chip neg-chip"><span class="tkr">MU</span><span class="chg neg">-1.46%</span></a><a href="https://finance.yahoo.com/quote/WDC" target="_blank" class="chip neg-chip"><span class="tkr">WDC</span><span class="chg neg">-0.45%</span></a><a href="https://finance.yahoo.com/quote/LRCX" target="_blank" class="chip pos-chip"><span class="tkr">LRCX</span><span class="chg pos">+1.03%</span></a><a href="https://finance.yahoo.com/quote/ONTO" target="_blank" class="chip pos-chip"><span class="tkr">ONTO</span><span class="chg pos">+0.31%</span></a><a href="https://finance.yahoo.com/quote/AMAT" target="_blank" class="chip pos-chip"><span class="tkr">AMAT</span><span class="chg pos">+1.12%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.11%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:1.12%"></div>
+  <div class="rn">19</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">☁️</span><span class="tnt">クラウド・データセンター</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/AMZN" target="_blank" class="chip neg-chip"><span class="tkr">AMZN</span><span class="chg neg">-0.80%</span></a><a href="https://finance.yahoo.com/quote/MSFT" target="_blank" class="chip neg-chip"><span class="tkr">MSFT</span><span class="chg neg">-0.12%</span></a><a href="https://finance.yahoo.com/quote/EQIX" target="_blank" class="chip pos-chip"><span class="tkr">EQIX</span><span class="chg pos">+0.13%</span></a><a href="https://finance.yahoo.com/quote/DLR" target="_blank" class="chip neg-chip"><span class="tkr">DLR</span><span class="chg neg">-1.15%</span></a><a href="https://finance.yahoo.com/quote/VRT" target="_blank" class="chip pos-chip"><span class="tkr">VRT</span><span class="chg pos">+1.26%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.14%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:4.08%"></div>
+  <div class="rn">20</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🛒</span><span class="tnt">eコマース・D2C</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/AMZN" target="_blank" class="chip neg-chip"><span class="tkr">AMZN</span><span class="chg neg">-0.80%</span></a><a href="https://finance.yahoo.com/quote/SHOP" target="_blank" class="chip neg-chip"><span class="tkr">SHOP</span><span class="chg neg">-1.77%</span></a><a href="https://finance.yahoo.com/quote/MELI" target="_blank" class="chip neg-chip"><span class="tkr">MELI</span><span class="chg neg">-0.80%</span></a><a href="https://finance.yahoo.com/quote/ETSY" target="_blank" class="chip pos-chip"><span class="tkr">ETSY</span><span class="chg pos">+2.70%</span></a><a href="https://finance.yahoo.com/quote/SE" target="_blank" class="chip neg-chip"><span class="tkr">SE</span><span class="chg neg">-1.90%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.51%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:5.04%"></div>
+  <div class="rn">21</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🤖</span><span class="tnt">AI・人工知能</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/NVDA" target="_blank" class="chip neg-chip"><span class="tkr">NVDA</span><span class="chg neg">-1.90%</span></a><a href="https://finance.yahoo.com/quote/MSFT" target="_blank" class="chip neg-chip"><span class="tkr">MSFT</span><span class="chg neg">-0.12%</span></a><a href="https://finance.yahoo.com/quote/GOOGL" target="_blank" class="chip neg-chip"><span class="tkr">GOOGL</span><span class="chg neg">-1.21%</span></a><a href="https://finance.yahoo.com/quote/META" target="_blank" class="chip pos-chip"><span class="tkr">META</span><span class="chg pos">+0.47%</span></a><a href="https://finance.yahoo.com/quote/PLTR" target="_blank" class="chip neg-chip"><span class="tkr">PLTR</span><span class="chg neg">-0.39%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.63%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:8.64%"></div>
+  <div class="rn">22</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💳</span><span class="tnt">フィンテック・決済</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/V" target="_blank" class="chip neg-chip"><span class="tkr">V</span><span class="chg neg">-0.68%</span></a><a href="https://finance.yahoo.com/quote/MA" target="_blank" class="chip neg-chip"><span class="tkr">MA</span><span class="chg neg">-0.22%</span></a><a href="https://finance.yahoo.com/quote/PYPL" target="_blank" class="chip neg-chip"><span class="tkr">PYPL</span><span class="chg neg">-0.16%</span></a><a href="https://finance.yahoo.com/quote/NU" target="_blank" class="chip neg-chip"><span class="tkr">NU</span><span class="chg neg">-3.27%</span></a><a href="https://finance.yahoo.com/quote/SQ" target="_blank" class="chip "><span class="tkr">SQ</span><span class="chg dim">—</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.08%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div></div>
+  <div class="panel" id="pc">
+<div class="item cold">
+  <div class="bg-bar" style="width:27.52%"></div>
+  <div class="rn">🥇</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🇨🇳</span><span class="tnt">中国テック（ADR）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/BABA" target="_blank" class="chip neg-chip"><span class="tkr">BABA</span><span class="chg neg">-1.12%</span></a><a href="https://finance.yahoo.com/quote/JD" target="_blank" class="chip neg-chip"><span class="tkr">JD</span><span class="chg neg">-3.02%</span></a><a href="https://finance.yahoo.com/quote/PDD" target="_blank" class="chip neg-chip"><span class="tkr">PDD</span><span class="chg neg">-3.34%</span></a><a href="https://finance.yahoo.com/quote/BIDU" target="_blank" class="chip neg-chip"><span class="tkr">BIDU</span><span class="chg neg">-2.58%</span></a><a href="https://finance.yahoo.com/quote/NIO" target="_blank" class="chip neg-chip"><span class="tkr">NIO</span><span class="chg neg">-7.14%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-3.44%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:17.2%"></div>
+  <div class="rn">🥈</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🌿</span><span class="tnt">大麻・カンナビス</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/MSOS" target="_blank" class="chip neg-chip"><span class="tkr">MSOS</span><span class="chg neg">-2.42%</span></a><a href="https://finance.yahoo.com/quote/TLRY" target="_blank" class="chip neg-chip"><span class="tkr">TLRY</span><span class="chg neg">-3.11%</span></a><a href="https://finance.yahoo.com/quote/CGC" target="_blank" class="chip neg-chip"><span class="tkr">CGC</span><span class="chg neg">-2.80%</span></a><a href="https://finance.yahoo.com/quote/ACB" target="_blank" class="chip neg-chip"><span class="tkr">ACB</span><span class="chg neg">-2.81%</span></a><a href="https://finance.yahoo.com/quote/CRON" target="_blank" class="chip pos-chip"><span class="tkr">CRON</span><span class="chg pos">+0.37%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-2.15%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:15.84%"></div>
+  <div class="rn">🥉</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚙</span><span class="tnt">中国EV</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/NIO" target="_blank" class="chip neg-chip"><span class="tkr">NIO</span><span class="chg neg">-7.14%</span></a><a href="https://finance.yahoo.com/quote/XPEV" target="_blank" class="chip neg-chip"><span class="tkr">XPEV</span><span class="chg neg">-0.26%</span></a><a href="https://finance.yahoo.com/quote/LI" target="_blank" class="chip neg-chip"><span class="tkr">LI</span><span class="chg neg">-1.91%</span></a><a href="https://finance.yahoo.com/quote/ZK" target="_blank" class="chip "><span class="tkr">ZK</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/KNDI" target="_blank" class="chip pos-chip"><span class="tkr">KNDI</span><span class="chg pos">+1.39%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.98%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:7.68%"></div>
+  <div class="rn">4</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔬</span><span class="tnt">臨床段階バイオテック</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/XBI" target="_blank" class="chip neg-chip"><span class="tkr">XBI</span><span class="chg neg">-0.84%</span></a><a href="https://finance.yahoo.com/quote/SRPT" target="_blank" class="chip neg-chip"><span class="tkr">SRPT</span><span class="chg neg">-0.94%</span></a><a href="https://finance.yahoo.com/quote/RARE" target="_blank" class="chip neg-chip"><span class="tkr">RARE</span><span class="chg neg">-1.35%</span></a><a href="https://finance.yahoo.com/quote/FOLD" target="_blank" class="chip "><span class="tkr">FOLD</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/ARQT" target="_blank" class="chip neg-chip"><span class="tkr">ARQT</span><span class="chg neg">-0.71%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.96%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:6.96%"></div>
+  <div class="rn">5</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚢</span><span class="tnt">クルーズ・旅行（景気敏感）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/CCL" target="_blank" class="chip neg-chip"><span class="tkr">CCL</span><span class="chg neg">-0.76%</span></a><a href="https://finance.yahoo.com/quote/RCL" target="_blank" class="chip neg-chip"><span class="tkr">RCL</span><span class="chg neg">-1.62%</span></a><a href="https://finance.yahoo.com/quote/NCLH" target="_blank" class="chip neg-chip"><span class="tkr">NCLH</span><span class="chg neg">-1.03%</span></a><a href="https://finance.yahoo.com/quote/MAR" target="_blank" class="chip neg-chip"><span class="tkr">MAR</span><span class="chg neg">-0.18%</span></a><a href="https://finance.yahoo.com/quote/H" target="_blank" class="chip neg-chip"><span class="tkr">H</span><span class="chg neg">-0.78%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.87%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:6.24%"></div>
+  <div class="rn">6</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔌</span><span class="tnt">水素・燃料電池</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/PLUG" target="_blank" class="chip pos-chip"><span class="tkr">PLUG</span><span class="chg pos">+0.00%</span></a><a href="https://finance.yahoo.com/quote/FCEL" target="_blank" class="chip neg-chip"><span class="tkr">FCEL</span><span class="chg neg">-5.19%</span></a><a href="https://finance.yahoo.com/quote/BE" target="_blank" class="chip neg-chip"><span class="tkr">BE</span><span class="chg neg">-1.75%</span></a><a href="https://finance.yahoo.com/quote/BLDP" target="_blank" class="chip pos-chip"><span class="tkr">BLDP</span><span class="chg pos">+2.03%</span></a><a href="https://finance.yahoo.com/quote/CLNE" target="_blank" class="chip pos-chip"><span class="tkr">CLNE</span><span class="chg pos">+0.99%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.78%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:2.48%"></div>
+  <div class="rn">7</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏙️</span><span class="tnt">商業用不動産・REIT全般</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/SPG" target="_blank" class="chip neg-chip"><span class="tkr">SPG</span><span class="chg neg">-0.24%</span></a><a href="https://finance.yahoo.com/quote/O" target="_blank" class="chip neg-chip"><span class="tkr">O</span><span class="chg neg">-0.34%</span></a><a href="https://finance.yahoo.com/quote/CBRE" target="_blank" class="chip pos-chip"><span class="tkr">CBRE</span><span class="chg pos">+0.02%</span></a><a href="https://finance.yahoo.com/quote/JLL" target="_blank" class="chip neg-chip"><span class="tkr">JLL</span><span class="chg neg">-0.43%</span></a><a href="https://finance.yahoo.com/quote/WPC" target="_blank" class="chip neg-chip"><span class="tkr">WPC</span><span class="chg neg">-0.56%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.31%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:0.32%"></div>
+  <div class="rn">8</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">📡</span><span class="tnt">旧来型通信キャリア</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/T" target="_blank" class="chip neg-chip"><span class="tkr">T</span><span class="chg neg">-0.32%</span></a><a href="https://finance.yahoo.com/quote/VZ" target="_blank" class="chip pos-chip"><span class="tkr">VZ</span><span class="chg pos">+0.17%</span></a><a href="https://finance.yahoo.com/quote/LUMN" target="_blank" class="chip neg-chip"><span class="tkr">LUMN</span><span class="chg neg">-0.32%</span></a><a href="https://finance.yahoo.com/quote/ATUS" target="_blank" class="chip "><span class="tkr">ATUS</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/TMUS" target="_blank" class="chip pos-chip"><span class="tkr">TMUS</span><span class="chg pos">+0.30%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.04%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:0.16%"></div>
+  <div class="rn">9</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🛢️</span><span class="tnt">シェールオイル・ガス</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/OXY" target="_blank" class="chip neg-chip"><span class="tkr">OXY</span><span class="chg neg">-0.03%</span></a><a href="https://finance.yahoo.com/quote/DVN" target="_blank" class="chip pos-chip"><span class="tkr">DVN</span><span class="chg pos">+0.23%</span></a><a href="https://finance.yahoo.com/quote/HES" target="_blank" class="chip "><span class="tkr">HES</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/FANG" target="_blank" class="chip neg-chip"><span class="tkr">FANG</span><span class="chg neg">-0.13%</span></a><a href="https://finance.yahoo.com/quote/CTRA" target="_blank" class="chip "><span class="tkr">CTRA</span><span class="chg dim">—</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.02%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:0.24%"></div>
+  <div class="rn">10</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🎮</span><span class="tnt">モバイルゲーム・メタバース</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/EA" target="_blank" class="chip neg-chip"><span class="tkr">EA</span><span class="chg neg">-0.45%</span></a><a href="https://finance.yahoo.com/quote/TTWO" target="_blank" class="chip neg-chip"><span class="tkr">TTWO</span><span class="chg neg">-4.42%</span></a><a href="https://finance.yahoo.com/quote/RBLX" target="_blank" class="chip pos-chip"><span class="tkr">RBLX</span><span class="chg pos">+4.38%</span></a><a href="https://finance.yahoo.com/quote/U" target="_blank" class="chip pos-chip"><span class="tkr">U</span><span class="chg pos">+0.12%</span></a><a href="https://finance.yahoo.com/quote/SNAP" target="_blank" class="chip pos-chip"><span class="tkr">SNAP</span><span class="chg pos">+0.53%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.03%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:0.88%"></div>
+  <div class="rn">11</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">📺</span><span class="tnt">旧来型メディア・放送</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/PARA" target="_blank" class="chip "><span class="tkr">PARA</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/WBD" target="_blank" class="chip neg-chip"><span class="tkr">WBD</span><span class="chg neg">-0.26%</span></a><a href="https://finance.yahoo.com/quote/AMCX" target="_blank" class="chip pos-chip"><span class="tkr">AMCX</span><span class="chg pos">+2.67%</span></a><a href="https://finance.yahoo.com/quote/DIS" target="_blank" class="chip neg-chip"><span class="tkr">DIS</span><span class="chg neg">-0.56%</span></a><a href="https://finance.yahoo.com/quote/NWSA" target="_blank" class="chip neg-chip"><span class="tkr">NWSA</span><span class="chg neg">-1.41%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.11%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:2.88%"></div>
+  <div class="rn">12</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏦</span><span class="tnt">地方銀行・リージョナル</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/KRE" target="_blank" class="chip pos-chip"><span class="tkr">KRE</span><span class="chg pos">+0.23%</span></a><a href="https://finance.yahoo.com/quote/WAL" target="_blank" class="chip pos-chip"><span class="tkr">WAL</span><span class="chg pos">+0.08%</span></a><a href="https://finance.yahoo.com/quote/FHN" target="_blank" class="chip pos-chip"><span class="tkr">FHN</span><span class="chg pos">+0.54%</span></a><a href="https://finance.yahoo.com/quote/HBAN" target="_blank" class="chip pos-chip"><span class="tkr">HBAN</span><span class="chg pos">+0.44%</span></a><a href="https://finance.yahoo.com/quote/ZION" target="_blank" class="chip pos-chip"><span class="tkr">ZION</span><span class="chg pos">+0.53%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.36%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:2.88%"></div>
+  <div class="rn">13</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🌍</span><span class="tnt">新興国株（EM）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/EEM" target="_blank" class="chip neg-chip"><span class="tkr">EEM</span><span class="chg neg">-0.23%</span></a><a href="https://finance.yahoo.com/quote/EWZ" target="_blank" class="chip neg-chip"><span class="tkr">EWZ</span><span class="chg neg">-1.73%</span></a><a href="https://finance.yahoo.com/quote/FXI" target="_blank" class="chip neg-chip"><span class="tkr">FXI</span><span class="chg neg">-1.03%</span></a><a href="https://finance.yahoo.com/quote/TUR" target="_blank" class="chip pos-chip"><span class="tkr">TUR</span><span class="chg pos">+7.16%</span></a><a href="https://finance.yahoo.com/quote/EWY" target="_blank" class="chip neg-chip"><span class="tkr">EWY</span><span class="chg neg">-2.35%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.36%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:6.08%"></div>
+  <div class="rn">14</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🌱</span><span class="tnt">農業・肥料</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/MOS" target="_blank" class="chip pos-chip"><span class="tkr">MOS</span><span class="chg pos">+2.60%</span></a><a href="https://finance.yahoo.com/quote/NTR" target="_blank" class="chip neg-chip"><span class="tkr">NTR</span><span class="chg neg">-0.16%</span></a><a href="https://finance.yahoo.com/quote/ADM" target="_blank" class="chip pos-chip"><span class="tkr">ADM</span><span class="chg pos">+0.52%</span></a><a href="https://finance.yahoo.com/quote/BG" target="_blank" class="chip pos-chip"><span class="tkr">BG</span><span class="chg pos">+0.81%</span></a><a href="https://finance.yahoo.com/quote/CF" target="_blank" class="chip pos-chip"><span class="tkr">CF</span><span class="chg pos">+0.01%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.76%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:7.36%"></div>
+  <div class="rn">15</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏢</span><span class="tnt">オフィス不動産（REIT）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/BXP" target="_blank" class="chip pos-chip"><span class="tkr">BXP</span><span class="chg pos">+0.27%</span></a><a href="https://finance.yahoo.com/quote/VNO" target="_blank" class="chip pos-chip"><span class="tkr">VNO</span><span class="chg pos">+1.11%</span></a><a href="https://finance.yahoo.com/quote/SLG" target="_blank" class="chip pos-chip"><span class="tkr">SLG</span><span class="chg pos">+1.74%</span></a><a href="https://finance.yahoo.com/quote/DEI" target="_blank" class="chip pos-chip"><span class="tkr">DEI</span><span class="chg pos">+0.00%</span></a><a href="https://finance.yahoo.com/quote/PDM" target="_blank" class="chip pos-chip"><span class="tkr">PDM</span><span class="chg pos">+1.49%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.92%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:8.72%"></div>
+  <div class="rn">16</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏬</span><span class="tnt">旧来型小売・百貨店</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/TGT" target="_blank" class="chip neg-chip"><span class="tkr">TGT</span><span class="chg neg">-0.44%</span></a><a href="https://finance.yahoo.com/quote/M" target="_blank" class="chip pos-chip"><span class="tkr">M</span><span class="chg pos">+0.19%</span></a><a href="https://finance.yahoo.com/quote/KSS" target="_blank" class="chip pos-chip"><span class="tkr">KSS</span><span class="chg pos">+2.83%</span></a><a href="https://finance.yahoo.com/quote/GPS" target="_blank" class="chip "><span class="tkr">GPS</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/DDS" target="_blank" class="chip pos-chip"><span class="tkr">DDS</span><span class="chg pos">+1.80%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.09%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:8.96%"></div>
+  <div class="rn">17</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">⛽</span><span class="tnt">石炭・旧来型化石燃料</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/BTU" target="_blank" class="chip pos-chip"><span class="tkr">BTU</span><span class="chg pos">+0.57%</span></a><a href="https://finance.yahoo.com/quote/ARCH" target="_blank" class="chip "><span class="tkr">ARCH</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/AMR" target="_blank" class="chip pos-chip"><span class="tkr">AMR</span><span class="chg pos">+1.78%</span></a><a href="https://finance.yahoo.com/quote/CEIX" target="_blank" class="chip "><span class="tkr">CEIX</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/HNRG" target="_blank" class="chip pos-chip"><span class="tkr">HNRG</span><span class="chg pos">+1.01%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.12%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:11.04%"></div>
+  <div class="rn">18</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🩺</span><span class="tnt">ヘルスケア保険・MCO</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/UNH" target="_blank" class="chip pos-chip"><span class="tkr">UNH</span><span class="chg pos">+1.57%</span></a><a href="https://finance.yahoo.com/quote/CVS" target="_blank" class="chip neg-chip"><span class="tkr">CVS</span><span class="chg neg">-0.06%</span></a><a href="https://finance.yahoo.com/quote/HUM" target="_blank" class="chip pos-chip"><span class="tkr">HUM</span><span class="chg pos">+1.41%</span></a><a href="https://finance.yahoo.com/quote/MOH" target="_blank" class="chip pos-chip"><span class="tkr">MOH</span><span class="chg pos">+1.59%</span></a><a href="https://finance.yahoo.com/quote/CNC" target="_blank" class="chip pos-chip"><span class="tkr">CNC</span><span class="chg pos">+2.37%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.38%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:11.68%"></div>
+  <div class="rn">19</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">☀️</span><span class="tnt">太陽光・風力（旧来型）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/ENPH" target="_blank" class="chip pos-chip"><span class="tkr">ENPH</span><span class="chg pos">+2.71%</span></a><a href="https://finance.yahoo.com/quote/SEDG" target="_blank" class="chip neg-chip"><span class="tkr">SEDG</span><span class="chg neg">-1.67%</span></a><a href="https://finance.yahoo.com/quote/RUN" target="_blank" class="chip pos-chip"><span class="tkr">RUN</span><span class="chg pos">+1.21%</span></a><a href="https://finance.yahoo.com/quote/FSLR" target="_blank" class="chip pos-chip"><span class="tkr">FSLR</span><span class="chg pos">+3.60%</span></a><a href="https://finance.yahoo.com/quote/NOVA" target="_blank" class="chip "><span class="tkr">NOVA</span><span class="chg dim">—</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.46%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:19.36%"></div>
+  <div class="rn">20</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🧬</span><span class="tnt">遺伝子治療・ゲノム編集</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/NTLA" target="_blank" class="chip pos-chip"><span class="tkr">NTLA</span><span class="chg pos">+1.86%</span></a><a href="https://finance.yahoo.com/quote/EDIT" target="_blank" class="chip pos-chip"><span class="tkr">EDIT</span><span class="chg pos">+3.37%</span></a><a href="https://finance.yahoo.com/quote/CRSP" target="_blank" class="chip pos-chip"><span class="tkr">CRSP</span><span class="chg pos">+0.92%</span></a><a href="https://finance.yahoo.com/quote/BEAM" target="_blank" class="chip pos-chip"><span class="tkr">BEAM</span><span class="chg pos">+3.51%</span></a><a href="https://finance.yahoo.com/quote/BLUE" target="_blank" class="chip "><span class="tkr">BLUE</span><span class="chg dim">—</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+2.42%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div></div>
+</div>
+<div class="disc">
+  ⚠️ 本ページは情報提供目的のみ。騰落率は yfinance 経由の参考値（前日終値比）。テーマ平均は構成銘柄の単純平均。投資は自己判断・自己責任で。
+</div>
+<!-- QR モーダル -->
+<div id="qr-overlay" style="display:none" onclick="hideQR()">
+  <div id="qr-box" onclick="event.stopPropagation()">
+    <h3>📱 スマホで開く</h3>
+    <div id="qr-code"></div>
+    <div id="qr-url"></div>
+    <button id="qr-close" onclick="hideQR()">閉じる</button>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function sw(t){
+  document.getElementById('ph').classList.toggle('active', t==='hot');
+  document.getElementById('pc').classList.toggle('active', t==='cold');
+  document.getElementById('th').className='tab'+(t==='hot'?' hot':'');
+  document.getElementById('tc').className='tab'+(t==='cold'?' cold':'');
+}
+
+let qrGenerated = false;
+function showQR() {
+  const url = window.location.href;
+  document.getElementById('qr-url').textContent = url;
+  if (!qrGenerated) {
+    try {
+      new QRCode(document.getElementById('qr-code'), {
+        text: url, width: 200, height: 200,
+        colorDark: '#ffffff', colorLight: '#12121a',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      qrGenerated = true;
+    } catch(e) {
+      document.getElementById('qr-code').innerHTML =
+        '<p style="color:#6a6a8a;font-size:12px">QRコード生成にはインターネット接続が必要です</p>';
+    }
+  }
+  document.getElementById('qr-overlay').style.display = 'flex';
+}
+function hideQR() {
+  document.getElementById('qr-overlay').style.display = 'none';
+}
+</script>
+</body>
+</html>
