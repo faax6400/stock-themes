@@ -3,7 +3,7 @@
 日本株の対応銘柄表示付き
 """
 
-import sys, os, time
+import sys, os, time, json, base64, webbrowser, urllib.request, urllib.error
 from datetime import datetime, timezone, timedelta
 
 try:
@@ -472,15 +472,74 @@ function hideQR(){{document.getElementById('qr-overlay').style.display='none';}}
 </body>
 </html>"""
 
+def upload_to_github(html, jst_now):
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        sys.path.insert(0, script_dir)
+        import config as cfg
+        token = cfg.GITHUB_TOKEN
+        user  = cfg.GITHUB_USER
+        repo  = cfg.GITHUB_REPO
+    except ImportError:
+        return  # GitHub Actions では config.py 不要（スキップ）
+
+    if "ここにトークンを貼る" in token or not token.startswith("ghp_"):
+        print("config.py のトークンが未設定のためアップロードをスキップ")
+        return
+
+    print("GitHub Pages へアップロード中...")
+    api_url = f"https://api.github.com/repos/{user}/{repo}/contents/index.html"
+    headers = {
+        "Authorization": f"token {token}",
+        "Accept": "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+        "User-Agent": "stock-themes-uploader"
+    }
+    sha = None
+    try:
+        req = urllib.request.Request(api_url, headers=headers)
+        with urllib.request.urlopen(req) as res:
+            sha = json.loads(res.read()).get("sha")
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            print(f"SHA取得エラー: {e.code}")
+
+    content_b64 = base64.b64encode(html.encode("utf-8")).decode()
+    data = {"message": f"Update {jst_now.strftime('%Y-%m-%d %H:%M')} JST", "content": content_b64, "branch": "main"}
+    if sha:
+        data["sha"] = sha
+
+    try:
+        body = json.dumps(data).encode("utf-8")
+        req  = urllib.request.Request(api_url, data=body, headers=headers, method="PUT")
+        with urllib.request.urlopen(req) as res:
+            pass
+        pages_url = f"https://{user}.github.io/{repo}/"
+        print(f"アップロード完了！")
+        print(f"\n{'='*50}")
+        print(f"  スマホURL: {pages_url}")
+        print(f"{'='*50}\n")
+        webbrowser.open(pages_url)
+    except Exception as e:
+        print(f"アップロードエラー: {e}")
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        out_file = os.path.join(script_dir, "index.html")
+        webbrowser.open(f"file:///{out_file.replace(os.sep, '/')}")
+
 def main():
     quote_map  = fetch_quotes()
     theme_data = compute_themes(quote_map)
     jst_now    = datetime.now(timezone(timedelta(hours=9)))
     html       = build_html(theme_data, quote_map, jst_now)
+
+    # ローカルに保存
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "index.html")
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"Saved: {out}")
+
+    # GitHub へアップロード（config.py がある場合）
+    upload_to_github(html, jst_now)
 
 if __name__ == "__main__":
     main()
