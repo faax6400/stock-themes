@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>株テーマ更新トリガー</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0a0f;color:#e8e8f0;font-family:-apple-system,'Hiragino Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{background:#12121a;border:1px solid #252535;border-radius:20px;padding:28px;width:100%;max-width:400px}
+h1{font-size:18px;font-weight:700;margin-bottom:6px;text-align:center}
+.sub{font-size:12px;color:#6a6a8a;text-align:center;margin-bottom:24px}
+label{font-size:12px;color:#6a6a8a;display:block;margin-bottom:6px}
+input{width:100%;background:#1c1c28;border:1px solid #252535;border-radius:10px;padding:11px 14px;color:#e8e8f0;font-size:13px;outline:none;margin-bottom:6px}
+input:focus{border-color:#7c6ff7}
+.hint{font-size:11px;color:#3a3a5a;margin-bottom:20px;line-height:1.5}
+.hint a{color:#7c6ff7}
+.btn{width:100%;padding:14px;border-radius:12px;border:none;font-size:15px;font-weight:700;cursor:pointer;transition:all .15s;margin-bottom:10px}
+.btn-us{background:linear-gradient(135deg,#7c6ff7,#a78bfa);color:#fff}
+.btn-jp{background:linear-gradient(135deg,#4caf50,#81c784);color:#fff}
+.btn:hover{opacity:.85;transform:translateY(-1px)}
+.btn:active{transform:translateY(0);opacity:.95}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+#status{margin-top:14px;padding:12px 14px;border-radius:10px;font-size:13px;text-align:center;display:none}
+.ok{background:rgba(0,208,132,.1);border:1px solid rgba(0,208,132,.3);color:#00d084}
+.err{background:rgba(255,77,106,.1);border:1px solid rgba(255,77,106,.3);color:#ff4d6a}
+.running{background:rgba(124,111,247,.1);border:1px solid rgba(124,111,247,.3);color:#a78bfa}
+.links{margin-top:18px;text-align:center;font-size:12px}
+.links a{color:#7c6ff7;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>📊 株テーマランキング</h1>
+  <p class="sub">手動更新トリガー</p>
+
+  <label>GitHub Personal Access Token</label>
+  <input type="password" id="tok" placeholder="ghp_xxxxxxxxxxxx">
+  <p class="hint">
+    初回のみ入力。次回から自動入力されます。<br>
+    トークンは <a href="https://github.com/settings/tokens" target="_blank">github.com/settings/tokens</a> で作成（repo スコープ必要）
+  </p>
+
+  <button class="btn btn-us" onclick="trigger('US')">🇺🇸 米国株テーマを今すぐ更新</button>
+  <button class="btn btn-jp" onclick="trigger('JP')">🗾 日本株テーマを今すぐ更新</button>
+
+  <div id="status"></div>
+
+  <div class="links">
+    <a href="index.html">🇺🇸 米国株ページ</a>
+    <a href="jp-themes.html">🗾 日本株ページ</a>
+  </div>
+</div>
+<script>
+const USER = 'faax6400';
+const REPO = 'stock-themes';
+
+window.onload = () => {
+  const saved = localStorage.getItem('gh_token');
+  if (saved) document.getElementById('tok').value = saved;
+};
+
+async function trigger(market) {
+  const tok = document.getElementById('tok').value.trim();
+  if (!tok) { showStatus('トークンを入力してください', 'err'); return; }
+  localStorage.setItem('gh_token', tok);
+
+  const btns = document.querySelectorAll('.btn');
+  btns.forEach(b => b.disabled = true);
+  showStatus('⏳ GitHub Actions に送信中...', 'running');
+
+  try {
+    const res = await fetch(
+      `https://api.github.com/repos/${USER}/${REPO}/dispatches`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `token ${tok}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({event_type: 'manual-update', client_payload: {market}})
+      }
+    );
+    if (res.status === 204) {
+      showStatus('✅ 送信成功！約2〜3分後にページが更新されます。', 'ok');
+    } else {
+      const txt = await res.text();
+      showStatus(`❌ エラー ${res.status}: ${txt.slice(0,80)}`, 'err');
+    }
+  } catch(e) {
+    showStatus('❌ ネットワークエラー: ' + e.message, 'err');
+  } finally {
+    setTimeout(() => btns.forEach(b => b.disabled = false), 5000);
+  }
+}
+
+function showStatus(msg, cls) {
+  const el = document.getElementById('status');
+  el.textContent = msg;
+  el.className = cls;
+  el.style.display = 'block';
+}
+</script>
+</body>
+</html>
