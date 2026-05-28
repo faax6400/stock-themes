@@ -18,8 +18,6 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
 .ts{font-size:11px;color:var(--tm);text-align:right}
 .qr-btn{background:var(--sf2);border:1px solid var(--bd);color:var(--tm);border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;white-space:nowrap}
 .qr-btn:hover{border-color:var(--ac);color:var(--ac)}
-.switch-btn{background:rgba(76,175,80,.12);border:1px solid rgba(76,175,80,.35);color:#66bb6a;border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:all .15s}
-.switch-btn:hover{background:rgba(76,175,80,.25);border-color:#66bb6a}
 #qr-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center}
 #qr-box{background:var(--sf);border:1px solid var(--bd);border-radius:20px;padding:28px;text-align:center;z-index:201;max-width:280px;width:90%}
 #qr-box h3{font-size:15px;margin-bottom:16px}
@@ -96,9 +94,8 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
     <div style="display:flex;align-items:center;gap:10px">
       <div class="ts">
         <div style="color:var(--g);font-weight:700">✅ 引け後データ（確定値）</div>
-        <div>取得: 2026/05/28 20:58 JST</div>
+        <div>取得: 2026/05/28 20:59 JST</div>
       </div>
-      <a href="jp-themes.html" class="switch-btn">🗾 日本株テーマ</a>
       <button class="qr-btn" onclick="showQR()">📱 QR</button>
     </div>
   </div>
@@ -112,17 +109,17 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
         <div class="as">🇺🇸 米国株クリック → Yahoo Finance｜🇯🇵 日本株クリック → みんかぶ</div>
       </div>
     </div>
-    <div class="ar">更新: 2026/05/28 20:58 JST</div>
+    <div class="ar">更新: 2026/05/28 20:59 JST</div>
   </div>
 </div>
 <div class="stats">
-  <div class="stat"><div class="sv pos">🧬  +7.71%</div><div class="sl">本日最強テーマ</div></div>
+  <div class="stat"><div class="sv pos">🧬  +8.32%</div><div class="sl">本日最強テーマ</div></div>
   <div class="stat"><div class="sv neg">🔒 -9.55%</div><div class="sl">本日最弱テーマ</div></div>
   <div class="stat"><div class="sv neu">40</div><div class="sl">追跡テーマ数</div></div>
 </div>
 <div class="tabs">
-  <button class="tab hot" id="th" onclick="sw('hot')">🔥 人気テーマ <span class="ta">-0.18%</span></button>
-  <button class="tab" id="tc" onclick="sw('cold')">🧊 不人気テーマ <span class="ta">+1.41%</span></button>
+  <button class="tab hot" id="th" onclick="sw('hot')">🔥 人気テーマ <span class="ta">-0.20%</span></button>
+  <button class="tab" id="tc" onclick="sw('cold')">🧊 不人気テーマ <span class="ta">+1.44%</span></button>
 </div>
 <div class="ch">
   <span class="cl">#</span>
@@ -236,21 +233,8 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
 </div>
 <div class="item hot">
-  <div class="bg-bar" style="width:3.12%"></div>
-  <div class="rn">9</div>
-  <div class="ti">
-    <div class="tn"><span class="tic">💳</span><span class="tnt">フィンテック・決済</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/V" target="_blank" class="chip pos-chip"><span class="tkr">V</span><span class="chg pos">+0.35%</span></a><a href="https://finance.yahoo.com/quote/MA" target="_blank" class="chip pos-chip"><span class="tkr">MA</span><span class="chg pos">+0.41%</span></a><a href="https://finance.yahoo.com/quote/PYPL" target="_blank" class="chip neg-chip"><span class="tkr">PYPL</span><span class="chg neg">-0.91%</span></a><a href="https://finance.yahoo.com/quote/NU" target="_blank" class="chip pos-chip"><span class="tkr">NU</span><span class="chg pos">+0.39%</span></a><a href="https://finance.yahoo.com/quote/AFRM" target="_blank" class="chip pos-chip"><span class="tkr">AFRM</span><span class="chg pos">+1.69%</span></a></div>
-    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/3769" target="_blank" class="chip jp-chip"><span class="tkr">3769</span><span class="jpname">GMO-PG</span></a><a href="https://minkabu.jp/stock/4385" target="_blank" class="chip jp-chip"><span class="tkr">4385</span><span class="jpname">メルカリ</span></a><a href="https://minkabu.jp/stock/8473" target="_blank" class="chip jp-chip"><span class="tkr">8473</span><span class="jpname">SBI HD</span></a><a href="https://minkabu.jp/stock/4689" target="_blank" class="chip jp-chip"><span class="tkr">4689</span><span class="jpname">LINEヤフー</span></a><a href="https://minkabu.jp/stock/3774" target="_blank" class="chip jp-chip"><span class="tkr">3774</span><span class="jpname">IIJ</span></a></div></div>
-  </div>
-  <div class="ret">
-    <div class="rp pos">+0.39%</div>
-    <div class="rl">テーマ平均</div>
-  </div>
-</div>
-<div class="item hot">
   <div class="bg-bar" style="width:2.56%"></div>
-  <div class="rn">10</div>
+  <div class="rn">9</div>
   <div class="ti">
     <div class="tn"><span class="tic">⚛️</span><span class="tnt">量子コンピュータ</span></div>
     <div class="chips"><a href="https://finance.yahoo.com/quote/IONQ" target="_blank" class="chip pos-chip"><span class="tkr">IONQ</span><span class="chg pos">+2.80%</span></a><a href="https://finance.yahoo.com/quote/RGTI" target="_blank" class="chip neg-chip"><span class="tkr">RGTI</span><span class="chg neg">-1.78%</span></a><a href="https://finance.yahoo.com/quote/QBTS" target="_blank" class="chip neg-chip"><span class="tkr">QBTS</span><span class="chg neg">-1.22%</span></a><a href="https://finance.yahoo.com/quote/IBM" target="_blank" class="chip pos-chip"><span class="tkr">IBM</span><span class="chg pos">+1.80%</span></a><a href="https://finance.yahoo.com/quote/GOOGL" target="_blank" class="chip neg-chip"><span class="tkr">GOOGL</span><span class="chg neg">-0.01%</span></a></div>
@@ -258,6 +242,19 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
   <div class="ret">
     <div class="rp pos">+0.32%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:0.48%"></div>
+  <div class="rn">10</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💳</span><span class="tnt">フィンテック・決済</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/V" target="_blank" class="chip pos-chip"><span class="tkr">V</span><span class="chg pos">+0.35%</span></a><a href="https://finance.yahoo.com/quote/MA" target="_blank" class="chip pos-chip"><span class="tkr">MA</span><span class="chg pos">+0.41%</span></a><a href="https://finance.yahoo.com/quote/PYPL" target="_blank" class="chip neg-chip"><span class="tkr">PYPL</span><span class="chg neg">-0.91%</span></a><a href="https://finance.yahoo.com/quote/NU" target="_blank" class="chip pos-chip"><span class="tkr">NU</span><span class="chg pos">+0.39%</span></a><a href="https://finance.yahoo.com/quote/SQ" target="_blank" class="chip "><span class="tkr">SQ</span><span class="chg dim">—</span></a></div>
+    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/3769" target="_blank" class="chip jp-chip"><span class="tkr">3769</span><span class="jpname">GMO-PG</span></a><a href="https://minkabu.jp/stock/4385" target="_blank" class="chip jp-chip"><span class="tkr">4385</span><span class="jpname">メルカリ</span></a><a href="https://minkabu.jp/stock/8473" target="_blank" class="chip jp-chip"><span class="tkr">8473</span><span class="jpname">SBI HD</span></a><a href="https://minkabu.jp/stock/4689" target="_blank" class="chip jp-chip"><span class="tkr">4689</span><span class="jpname">LINEヤフー</span></a><a href="https://minkabu.jp/stock/3774" target="_blank" class="chip jp-chip"><span class="tkr">3774</span><span class="jpname">IIJ</span></a></div></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.06%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
@@ -419,15 +416,15 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
 </div></div>
   <div class="panel" id="pc">
 <div class="item cold">
-  <div class="bg-bar" style="width:12.88%"></div>
+  <div class="bg-bar" style="width:10.88%"></div>
   <div class="rn">🥇</div>
   <div class="ti">
     <div class="tn"><span class="tic">🛢️</span><span class="tnt">シェールオイル・ガス</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/OXY" target="_blank" class="chip neg-chip"><span class="tkr">OXY</span><span class="chg neg">-0.99%</span></a><a href="https://finance.yahoo.com/quote/DVN" target="_blank" class="chip neg-chip"><span class="tkr">DVN</span><span class="chg neg">-1.93%</span></a><a href="https://finance.yahoo.com/quote/APA" target="_blank" class="chip neg-chip"><span class="tkr">APA</span><span class="chg neg">-2.35%</span></a><a href="https://finance.yahoo.com/quote/FANG" target="_blank" class="chip neg-chip"><span class="tkr">FANG</span><span class="chg neg">-1.17%</span></a><a href="https://finance.yahoo.com/quote/SWN" target="_blank" class="chip "><span class="tkr">SWN</span><span class="chg dim">—</span></a></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/OXY" target="_blank" class="chip neg-chip"><span class="tkr">OXY</span><span class="chg neg">-0.99%</span></a><a href="https://finance.yahoo.com/quote/DVN" target="_blank" class="chip neg-chip"><span class="tkr">DVN</span><span class="chg neg">-1.93%</span></a><a href="https://finance.yahoo.com/quote/HES" target="_blank" class="chip "><span class="tkr">HES</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/FANG" target="_blank" class="chip neg-chip"><span class="tkr">FANG</span><span class="chg neg">-1.17%</span></a><a href="https://finance.yahoo.com/quote/CTRA" target="_blank" class="chip "><span class="tkr">CTRA</span><span class="chg dim">—</span></a></div>
     <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/1605" target="_blank" class="chip jp-chip"><span class="tkr">1605</span><span class="jpname">INPEX</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip jp-chip"><span class="tkr">5020</span><span class="jpname">ENEOS HD</span></a><a href="https://minkabu.jp/stock/1662" target="_blank" class="chip jp-chip"><span class="tkr">1662</span><span class="jpname">石油資源開発</span></a><a href="https://minkabu.jp/stock/5019" target="_blank" class="chip jp-chip"><span class="tkr">5019</span><span class="jpname">出光興産</span></a><a href="https://minkabu.jp/stock/9531" target="_blank" class="chip jp-chip"><span class="tkr">9531</span><span class="jpname">東京ガス</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp neg">-1.61%</div>
+    <div class="rp neg">-1.36%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
@@ -458,15 +455,15 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:2.4%"></div>
+  <div class="bg-bar" style="width:2.0%"></div>
   <div class="rn">4</div>
   <div class="ti">
     <div class="tn"><span class="tic">🏬</span><span class="tnt">旧来型小売・百貨店</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/TGT" target="_blank" class="chip pos-chip"><span class="tkr">TGT</span><span class="chg pos">+2.31%</span></a><a href="https://finance.yahoo.com/quote/M" target="_blank" class="chip neg-chip"><span class="tkr">M</span><span class="chg neg">-2.86%</span></a><a href="https://finance.yahoo.com/quote/KSS" target="_blank" class="chip neg-chip"><span class="tkr">KSS</span><span class="chg neg">-2.71%</span></a><a href="https://finance.yahoo.com/quote/ROST" target="_blank" class="chip neg-chip"><span class="tkr">ROST</span><span class="chg neg">-0.52%</span></a><a href="https://finance.yahoo.com/quote/DDS" target="_blank" class="chip pos-chip"><span class="tkr">DDS</span><span class="chg pos">+2.27%</span></a></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/TGT" target="_blank" class="chip pos-chip"><span class="tkr">TGT</span><span class="chg pos">+2.31%</span></a><a href="https://finance.yahoo.com/quote/M" target="_blank" class="chip neg-chip"><span class="tkr">M</span><span class="chg neg">-2.86%</span></a><a href="https://finance.yahoo.com/quote/KSS" target="_blank" class="chip neg-chip"><span class="tkr">KSS</span><span class="chg neg">-2.71%</span></a><a href="https://finance.yahoo.com/quote/GPS" target="_blank" class="chip "><span class="tkr">GPS</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/DDS" target="_blank" class="chip pos-chip"><span class="tkr">DDS</span><span class="chg pos">+2.27%</span></a></div>
     <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/8267" target="_blank" class="chip jp-chip"><span class="tkr">8267</span><span class="jpname">イオン</span></a><a href="https://minkabu.jp/stock/3382" target="_blank" class="chip jp-chip"><span class="tkr">3382</span><span class="jpname">セブン&アイHD</span></a><a href="https://minkabu.jp/stock/2651" target="_blank" class="chip jp-chip"><span class="tkr">2651</span><span class="jpname">ローソン</span></a><a href="https://minkabu.jp/stock/7453" target="_blank" class="chip jp-chip"><span class="tkr">7453</span><span class="jpname">良品計画</span></a><a href="https://minkabu.jp/stock/3099" target="_blank" class="chip jp-chip"><span class="tkr">3099</span><span class="jpname">三越伊勢丹</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp neg">-0.30%</div>
+    <div class="rp neg">-0.25%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
@@ -497,8 +494,21 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:4.8%"></div>
+  <div class="bg-bar" style="width:4.32%"></div>
   <div class="rn">7</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔬</span><span class="tnt">臨床段階バイオテック</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/XBI" target="_blank" class="chip pos-chip"><span class="tkr">XBI</span><span class="chg pos">+0.82%</span></a><a href="https://finance.yahoo.com/quote/SRPT" target="_blank" class="chip pos-chip"><span class="tkr">SRPT</span><span class="chg pos">+0.06%</span></a><a href="https://finance.yahoo.com/quote/RARE" target="_blank" class="chip pos-chip"><span class="tkr">RARE</span><span class="chg pos">+1.08%</span></a><a href="https://finance.yahoo.com/quote/FOLD" target="_blank" class="chip "><span class="tkr">FOLD</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/ARQT" target="_blank" class="chip pos-chip"><span class="tkr">ARQT</span><span class="chg pos">+0.19%</span></a></div>
+    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/4503" target="_blank" class="chip jp-chip"><span class="tkr">4503</span><span class="jpname">アステラス</span></a><a href="https://minkabu.jp/stock/4523" target="_blank" class="chip jp-chip"><span class="tkr">4523</span><span class="jpname">エーザイ</span></a><a href="https://minkabu.jp/stock/4151" target="_blank" class="chip jp-chip"><span class="tkr">4151</span><span class="jpname">協和キリン</span></a><a href="https://minkabu.jp/stock/4568" target="_blank" class="chip jp-chip"><span class="tkr">4568</span><span class="jpname">第一三共</span></a><a href="https://minkabu.jp/stock/4519" target="_blank" class="chip jp-chip"><span class="tkr">4519</span><span class="jpname">中外製薬</span></a></div></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.54%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:4.8%"></div>
+  <div class="rn">8</div>
   <div class="ti">
     <div class="tn"><span class="tic">🌿</span><span class="tnt">大麻・カンナビス</span></div>
     <div class="chips"><a href="https://finance.yahoo.com/quote/MSOS" target="_blank" class="chip neg-chip"><span class="tkr">MSOS</span><span class="chg neg">-0.64%</span></a><a href="https://finance.yahoo.com/quote/TLRY" target="_blank" class="chip pos-chip"><span class="tkr">TLRY</span><span class="chg pos">+1.83%</span></a><a href="https://finance.yahoo.com/quote/CGC" target="_blank" class="chip pos-chip"><span class="tkr">CGC</span><span class="chg pos">+1.90%</span></a><a href="https://finance.yahoo.com/quote/ACB" target="_blank" class="chip pos-chip"><span class="tkr">ACB</span><span class="chg pos">+0.29%</span></a><a href="https://finance.yahoo.com/quote/CRON" target="_blank" class="chip neg-chip"><span class="tkr">CRON</span><span class="chg neg">-0.37%</span></a></div>
@@ -511,7 +521,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
 </div>
 <div class="item cold">
   <div class="bg-bar" style="width:5.84%"></div>
-  <div class="rn">8</div>
+  <div class="rn">9</div>
   <div class="ti">
     <div class="tn"><span class="tic">🌱</span><span class="tnt">農業・肥料</span></div>
     <div class="chips"><a href="https://finance.yahoo.com/quote/MOS" target="_blank" class="chip pos-chip"><span class="tkr">MOS</span><span class="chg pos">+4.86%</span></a><a href="https://finance.yahoo.com/quote/NTR" target="_blank" class="chip neg-chip"><span class="tkr">NTR</span><span class="chg neg">-1.73%</span></a><a href="https://finance.yahoo.com/quote/ADM" target="_blank" class="chip pos-chip"><span class="tkr">ADM</span><span class="chg pos">+1.97%</span></a><a href="https://finance.yahoo.com/quote/BG" target="_blank" class="chip pos-chip"><span class="tkr">BG</span><span class="chg pos">+0.90%</span></a><a href="https://finance.yahoo.com/quote/CF" target="_blank" class="chip neg-chip"><span class="tkr">CF</span><span class="chg neg">-2.37%</span></a></div>
@@ -524,7 +534,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
 </div>
 <div class="item cold">
   <div class="bg-bar" style="width:6.48%"></div>
-  <div class="rn">9</div>
+  <div class="rn">10</div>
   <div class="ti">
     <div class="tn"><span class="tic">🎮</span><span class="tnt">モバイルゲーム・メタバース</span></div>
     <div class="chips"><a href="https://finance.yahoo.com/quote/EA" target="_blank" class="chip neg-chip"><span class="tkr">EA</span><span class="chg neg">-0.13%</span></a><a href="https://finance.yahoo.com/quote/TTWO" target="_blank" class="chip neg-chip"><span class="tkr">TTWO</span><span class="chg neg">-1.00%</span></a><a href="https://finance.yahoo.com/quote/RBLX" target="_blank" class="chip neg-chip"><span class="tkr">RBLX</span><span class="chg neg">-0.80%</span></a><a href="https://finance.yahoo.com/quote/U" target="_blank" class="chip pos-chip"><span class="tkr">U</span><span class="chg pos">+3.70%</span></a><a href="https://finance.yahoo.com/quote/SNAP" target="_blank" class="chip pos-chip"><span class="tkr">SNAP</span><span class="chg pos">+2.26%</span></a></div>
@@ -532,19 +542,6 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
   <div class="ret">
     <div class="rp pos">+0.81%</div>
-    <div class="rl">テーマ平均</div>
-  </div>
-</div>
-<div class="item cold">
-  <div class="bg-bar" style="width:6.64%"></div>
-  <div class="rn">10</div>
-  <div class="ti">
-    <div class="tn"><span class="tic">🔬</span><span class="tnt">臨床段階バイオテック</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/XBI" target="_blank" class="chip pos-chip"><span class="tkr">XBI</span><span class="chg pos">+0.82%</span></a><a href="https://finance.yahoo.com/quote/SRPT" target="_blank" class="chip pos-chip"><span class="tkr">SRPT</span><span class="chg pos">+0.06%</span></a><a href="https://finance.yahoo.com/quote/RARE" target="_blank" class="chip pos-chip"><span class="tkr">RARE</span><span class="chg pos">+1.08%</span></a><a href="https://finance.yahoo.com/quote/ALKS" target="_blank" class="chip pos-chip"><span class="tkr">ALKS</span><span class="chg pos">+1.98%</span></a><a href="https://finance.yahoo.com/quote/ARQT" target="_blank" class="chip pos-chip"><span class="tkr">ARQT</span><span class="chg pos">+0.19%</span></a></div>
-    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/4503" target="_blank" class="chip jp-chip"><span class="tkr">4503</span><span class="jpname">アステラス</span></a><a href="https://minkabu.jp/stock/4523" target="_blank" class="chip jp-chip"><span class="tkr">4523</span><span class="jpname">エーザイ</span></a><a href="https://minkabu.jp/stock/4151" target="_blank" class="chip jp-chip"><span class="tkr">4151</span><span class="jpname">協和キリン</span></a><a href="https://minkabu.jp/stock/4568" target="_blank" class="chip jp-chip"><span class="tkr">4568</span><span class="jpname">第一三共</span></a><a href="https://minkabu.jp/stock/4519" target="_blank" class="chip jp-chip"><span class="tkr">4519</span><span class="jpname">中外製薬</span></a></div></div>
-  </div>
-  <div class="ret">
-    <div class="rp pos">+0.83%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
@@ -575,28 +572,28 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:11.84%"></div>
+  <div class="bg-bar" style="width:11.36%"></div>
   <div class="rn">13</div>
   <div class="ti">
-    <div class="tn"><span class="tic">📺</span><span class="tnt">旧来型メディア・放送</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/FOXA" target="_blank" class="chip pos-chip"><span class="tkr">FOXA</span><span class="chg pos">+0.80%</span></a><a href="https://finance.yahoo.com/quote/WBD" target="_blank" class="chip pos-chip"><span class="tkr">WBD</span><span class="chg pos">+0.52%</span></a><a href="https://finance.yahoo.com/quote/AMCX" target="_blank" class="chip pos-chip"><span class="tkr">AMCX</span><span class="chg pos">+3.67%</span></a><a href="https://finance.yahoo.com/quote/DIS" target="_blank" class="chip pos-chip"><span class="tkr">DIS</span><span class="chg pos">+0.87%</span></a><a href="https://finance.yahoo.com/quote/NWSA" target="_blank" class="chip pos-chip"><span class="tkr">NWSA</span><span class="chg pos">+1.56%</span></a></div>
-    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/9404" target="_blank" class="chip jp-chip"><span class="tkr">9404</span><span class="jpname">日本テレビHD</span></a><a href="https://minkabu.jp/stock/9401" target="_blank" class="chip jp-chip"><span class="tkr">9401</span><span class="jpname">TBS HD</span></a><a href="https://minkabu.jp/stock/9413" target="_blank" class="chip jp-chip"><span class="tkr">9413</span><span class="jpname">テレビ東京HD</span></a><a href="https://minkabu.jp/stock/4324" target="_blank" class="chip jp-chip"><span class="tkr">4324</span><span class="jpname">電通グループ</span></a><a href="https://minkabu.jp/stock/2433" target="_blank" class="chip jp-chip"><span class="tkr">2433</span><span class="jpname">博報堂DY</span></a></div></div>
+    <div class="tn"><span class="tic">📡</span><span class="tnt">旧来型通信キャリア</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/T" target="_blank" class="chip neg-chip"><span class="tkr">T</span><span class="chg neg">-0.52%</span></a><a href="https://finance.yahoo.com/quote/VZ" target="_blank" class="chip neg-chip"><span class="tkr">VZ</span><span class="chg neg">-0.52%</span></a><a href="https://finance.yahoo.com/quote/LUMN" target="_blank" class="chip pos-chip"><span class="tkr">LUMN</span><span class="chg pos">+6.88%</span></a><a href="https://finance.yahoo.com/quote/ATUS" target="_blank" class="chip "><span class="tkr">ATUS</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/TMUS" target="_blank" class="chip neg-chip"><span class="tkr">TMUS</span><span class="chg neg">-0.16%</span></a></div>
+    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/9432" target="_blank" class="chip jp-chip"><span class="tkr">9432</span><span class="jpname">NTT</span></a><a href="https://minkabu.jp/stock/9433" target="_blank" class="chip jp-chip"><span class="tkr">9433</span><span class="jpname">KDDI</span></a><a href="https://minkabu.jp/stock/9434" target="_blank" class="chip jp-chip"><span class="tkr">9434</span><span class="jpname">ソフトバンク</span></a><a href="https://minkabu.jp/stock/9613" target="_blank" class="chip jp-chip"><span class="tkr">9613</span><span class="jpname">NTTデータ</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp pos">+1.48%</div>
+    <div class="rp pos">+1.42%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:12.64%"></div>
+  <div class="bg-bar" style="width:13.2%"></div>
   <div class="rn">14</div>
   <div class="ti">
-    <div class="tn"><span class="tic">📡</span><span class="tnt">旧来型通信キャリア</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/T" target="_blank" class="chip neg-chip"><span class="tkr">T</span><span class="chg neg">-0.52%</span></a><a href="https://finance.yahoo.com/quote/VZ" target="_blank" class="chip neg-chip"><span class="tkr">VZ</span><span class="chg neg">-0.52%</span></a><a href="https://finance.yahoo.com/quote/LUMN" target="_blank" class="chip pos-chip"><span class="tkr">LUMN</span><span class="chg pos">+6.88%</span></a><a href="https://finance.yahoo.com/quote/CHTR" target="_blank" class="chip pos-chip"><span class="tkr">CHTR</span><span class="chg pos">+2.21%</span></a><a href="https://finance.yahoo.com/quote/TMUS" target="_blank" class="chip neg-chip"><span class="tkr">TMUS</span><span class="chg neg">-0.16%</span></a></div>
-    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/9432" target="_blank" class="chip jp-chip"><span class="tkr">9432</span><span class="jpname">NTT</span></a><a href="https://minkabu.jp/stock/9433" target="_blank" class="chip jp-chip"><span class="tkr">9433</span><span class="jpname">KDDI</span></a><a href="https://minkabu.jp/stock/9434" target="_blank" class="chip jp-chip"><span class="tkr">9434</span><span class="jpname">ソフトバンク</span></a><a href="https://minkabu.jp/stock/9613" target="_blank" class="chip jp-chip"><span class="tkr">9613</span><span class="jpname">NTTデータ</span></a></div></div>
+    <div class="tn"><span class="tic">📺</span><span class="tnt">旧来型メディア・放送</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/PARA" target="_blank" class="chip "><span class="tkr">PARA</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/WBD" target="_blank" class="chip pos-chip"><span class="tkr">WBD</span><span class="chg pos">+0.52%</span></a><a href="https://finance.yahoo.com/quote/AMCX" target="_blank" class="chip pos-chip"><span class="tkr">AMCX</span><span class="chg pos">+3.67%</span></a><a href="https://finance.yahoo.com/quote/DIS" target="_blank" class="chip pos-chip"><span class="tkr">DIS</span><span class="chg pos">+0.87%</span></a><a href="https://finance.yahoo.com/quote/NWSA" target="_blank" class="chip pos-chip"><span class="tkr">NWSA</span><span class="chg pos">+1.56%</span></a></div>
+    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/9404" target="_blank" class="chip jp-chip"><span class="tkr">9404</span><span class="jpname">日本テレビHD</span></a><a href="https://minkabu.jp/stock/9401" target="_blank" class="chip jp-chip"><span class="tkr">9401</span><span class="jpname">TBS HD</span></a><a href="https://minkabu.jp/stock/9413" target="_blank" class="chip jp-chip"><span class="tkr">9413</span><span class="jpname">テレビ東京HD</span></a><a href="https://minkabu.jp/stock/4324" target="_blank" class="chip jp-chip"><span class="tkr">4324</span><span class="jpname">電通グループ</span></a><a href="https://minkabu.jp/stock/2433" target="_blank" class="chip jp-chip"><span class="tkr">2433</span><span class="jpname">博報堂DY</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp pos">+1.58%</div>
+    <div class="rp pos">+1.65%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
@@ -614,21 +611,34 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:22.0%"></div>
+  <div class="bg-bar" style="width:24.24%"></div>
   <div class="rn">16</div>
   <div class="ti">
     <div class="tn"><span class="tic">⛽</span><span class="tnt">石炭・旧来型化石燃料</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/BTU" target="_blank" class="chip pos-chip"><span class="tkr">BTU</span><span class="chg pos">+1.70%</span></a><a href="https://finance.yahoo.com/quote/METC" target="_blank" class="chip pos-chip"><span class="tkr">METC</span><span class="chg pos">+4.93%</span></a><a href="https://finance.yahoo.com/quote/AMR" target="_blank" class="chip pos-chip"><span class="tkr">AMR</span><span class="chg pos">+4.19%</span></a><a href="https://finance.yahoo.com/quote/ARLP" target="_blank" class="chip neg-chip"><span class="tkr">ARLP</span><span class="chg neg">-0.28%</span></a><a href="https://finance.yahoo.com/quote/HNRG" target="_blank" class="chip pos-chip"><span class="tkr">HNRG</span><span class="chg pos">+3.21%</span></a></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/BTU" target="_blank" class="chip pos-chip"><span class="tkr">BTU</span><span class="chg pos">+1.70%</span></a><a href="https://finance.yahoo.com/quote/ARCH" target="_blank" class="chip "><span class="tkr">ARCH</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/AMR" target="_blank" class="chip pos-chip"><span class="tkr">AMR</span><span class="chg pos">+4.19%</span></a><a href="https://finance.yahoo.com/quote/CEIX" target="_blank" class="chip "><span class="tkr">CEIX</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/HNRG" target="_blank" class="chip pos-chip"><span class="tkr">HNRG</span><span class="chg pos">+3.21%</span></a></div>
     <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/1605" target="_blank" class="chip jp-chip"><span class="tkr">1605</span><span class="jpname">INPEX</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip jp-chip"><span class="tkr">5020</span><span class="jpname">ENEOS HD</span></a><a href="https://minkabu.jp/stock/1662" target="_blank" class="chip jp-chip"><span class="tkr">1662</span><span class="jpname">石油資源開発</span></a><a href="https://minkabu.jp/stock/5019" target="_blank" class="chip jp-chip"><span class="tkr">5019</span><span class="jpname">出光興産</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp pos">+2.75%</div>
+    <div class="rp pos">+3.03%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:27.36%"></div>
+  <div class="rn">17</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">☀️</span><span class="tnt">太陽光・風力（旧来型）</span></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/ENPH" target="_blank" class="chip pos-chip"><span class="tkr">ENPH</span><span class="chg pos">+5.05%</span></a><a href="https://finance.yahoo.com/quote/SEDG" target="_blank" class="chip pos-chip"><span class="tkr">SEDG</span><span class="chg pos">+3.51%</span></a><a href="https://finance.yahoo.com/quote/RUN" target="_blank" class="chip pos-chip"><span class="tkr">RUN</span><span class="chg pos">+3.75%</span></a><a href="https://finance.yahoo.com/quote/FSLR" target="_blank" class="chip pos-chip"><span class="tkr">FSLR</span><span class="chg pos">+1.38%</span></a><a href="https://finance.yahoo.com/quote/NOVA" target="_blank" class="chip "><span class="tkr">NOVA</span><span class="chg dim">—</span></a></div>
+    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/9501" target="_blank" class="chip jp-chip"><span class="tkr">9501</span><span class="jpname">東京電力HD</span></a><a href="https://minkabu.jp/stock/9503" target="_blank" class="chip jp-chip"><span class="tkr">9503</span><span class="jpname">関西電力</span></a><a href="https://minkabu.jp/stock/9531" target="_blank" class="chip jp-chip"><span class="tkr">9531</span><span class="jpname">東京ガス</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip jp-chip"><span class="tkr">5020</span><span class="jpname">ENEOS HD</span></a><a href="https://minkabu.jp/stock/6506" target="_blank" class="chip jp-chip"><span class="tkr">6506</span><span class="jpname">安川電機</span></a></div></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+3.42%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
 <div class="item cold">
   <div class="bg-bar" style="width:30.24%"></div>
-  <div class="rn">17</div>
+  <div class="rn">18</div>
   <div class="ti">
     <div class="tn"><span class="tic">🚢</span><span class="tnt">クルーズ・旅行（景気敏感）</span></div>
     <div class="chips"><a href="https://finance.yahoo.com/quote/CCL" target="_blank" class="chip pos-chip"><span class="tkr">CCL</span><span class="chg pos">+4.75%</span></a><a href="https://finance.yahoo.com/quote/RCL" target="_blank" class="chip pos-chip"><span class="tkr">RCL</span><span class="chg pos">+2.79%</span></a><a href="https://finance.yahoo.com/quote/NCLH" target="_blank" class="chip pos-chip"><span class="tkr">NCLH</span><span class="chg pos">+6.14%</span></a><a href="https://finance.yahoo.com/quote/MAR" target="_blank" class="chip pos-chip"><span class="tkr">MAR</span><span class="chg pos">+3.22%</span></a><a href="https://finance.yahoo.com/quote/H" target="_blank" class="chip pos-chip"><span class="tkr">H</span><span class="chg pos">+2.02%</span></a></div>
@@ -640,41 +650,28 @@ header{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop-
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:30.56%"></div>
-  <div class="rn">18</div>
+  <div class="bg-bar" style="width:34.64%"></div>
+  <div class="rn">19</div>
   <div class="ti">
     <div class="tn"><span class="tic">🚙</span><span class="tnt">中国EV</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/NIO" target="_blank" class="chip pos-chip"><span class="tkr">NIO</span><span class="chg pos">+9.32%</span></a><a href="https://finance.yahoo.com/quote/XPEV" target="_blank" class="chip neg-chip"><span class="tkr">XPEV</span><span class="chg neg">-0.60%</span></a><a href="https://finance.yahoo.com/quote/LI" target="_blank" class="chip neg-chip"><span class="tkr">LI</span><span class="chg neg">-0.63%</span></a><a href="https://finance.yahoo.com/quote/PSNY" target="_blank" class="chip pos-chip"><span class="tkr">PSNY</span><span class="chg pos">+1.81%</span></a><a href="https://finance.yahoo.com/quote/KNDI" target="_blank" class="chip pos-chip"><span class="tkr">KNDI</span><span class="chg pos">+9.21%</span></a></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/NIO" target="_blank" class="chip pos-chip"><span class="tkr">NIO</span><span class="chg pos">+9.32%</span></a><a href="https://finance.yahoo.com/quote/XPEV" target="_blank" class="chip neg-chip"><span class="tkr">XPEV</span><span class="chg neg">-0.60%</span></a><a href="https://finance.yahoo.com/quote/LI" target="_blank" class="chip neg-chip"><span class="tkr">LI</span><span class="chg neg">-0.63%</span></a><a href="https://finance.yahoo.com/quote/ZK" target="_blank" class="chip "><span class="tkr">ZK</span><span class="chg dim">—</span></a><a href="https://finance.yahoo.com/quote/KNDI" target="_blank" class="chip pos-chip"><span class="tkr">KNDI</span><span class="chg pos">+9.21%</span></a></div>
     <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/7203" target="_blank" class="chip jp-chip"><span class="tkr">7203</span><span class="jpname">トヨタ自動車</span></a><a href="https://minkabu.jp/stock/7267" target="_blank" class="chip jp-chip"><span class="tkr">7267</span><span class="jpname">本田技研</span></a><a href="https://minkabu.jp/stock/7201" target="_blank" class="chip jp-chip"><span class="tkr">7201</span><span class="jpname">日産自動車</span></a><a href="https://minkabu.jp/stock/7261" target="_blank" class="chip jp-chip"><span class="tkr">7261</span><span class="jpname">マツダ</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp pos">+3.82%</div>
+    <div class="rp pos">+4.33%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div>
 <div class="item cold">
-  <div class="bg-bar" style="width:33.52%"></div>
-  <div class="rn">19</div>
-  <div class="ti">
-    <div class="tn"><span class="tic">☀️</span><span class="tnt">太陽光・風力（旧来型）</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/ENPH" target="_blank" class="chip pos-chip"><span class="tkr">ENPH</span><span class="chg pos">+5.05%</span></a><a href="https://finance.yahoo.com/quote/SEDG" target="_blank" class="chip pos-chip"><span class="tkr">SEDG</span><span class="chg pos">+3.51%</span></a><a href="https://finance.yahoo.com/quote/RUN" target="_blank" class="chip pos-chip"><span class="tkr">RUN</span><span class="chg pos">+3.75%</span></a><a href="https://finance.yahoo.com/quote/FSLR" target="_blank" class="chip pos-chip"><span class="tkr">FSLR</span><span class="chg pos">+1.38%</span></a><a href="https://finance.yahoo.com/quote/ARRY" target="_blank" class="chip pos-chip"><span class="tkr">ARRY</span><span class="chg pos">+7.24%</span></a></div>
-    <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/9501" target="_blank" class="chip jp-chip"><span class="tkr">9501</span><span class="jpname">東京電力HD</span></a><a href="https://minkabu.jp/stock/9503" target="_blank" class="chip jp-chip"><span class="tkr">9503</span><span class="jpname">関西電力</span></a><a href="https://minkabu.jp/stock/9531" target="_blank" class="chip jp-chip"><span class="tkr">9531</span><span class="jpname">東京ガス</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip jp-chip"><span class="tkr">5020</span><span class="jpname">ENEOS HD</span></a><a href="https://minkabu.jp/stock/6506" target="_blank" class="chip jp-chip"><span class="tkr">6506</span><span class="jpname">安川電機</span></a></div></div>
-  </div>
-  <div class="ret">
-    <div class="rp pos">+4.19%</div>
-    <div class="rl">テーマ平均</div>
-  </div>
-</div>
-<div class="item cold">
-  <div class="bg-bar" style="width:61.68%"></div>
+  <div class="bg-bar" style="width:66.56%"></div>
   <div class="rn">20</div>
   <div class="ti">
     <div class="tn"><span class="tic">🧬</span><span class="tnt">遺伝子治療・ゲノム編集</span></div>
-    <div class="chips"><a href="https://finance.yahoo.com/quote/NTLA" target="_blank" class="chip pos-chip"><span class="tkr">NTLA</span><span class="chg pos">+6.58%</span></a><a href="https://finance.yahoo.com/quote/EDIT" target="_blank" class="chip pos-chip"><span class="tkr">EDIT</span><span class="chg pos">+15.91%</span></a><a href="https://finance.yahoo.com/quote/CRSP" target="_blank" class="chip pos-chip"><span class="tkr">CRSP</span><span class="chg pos">+3.76%</span></a><a href="https://finance.yahoo.com/quote/BEAM" target="_blank" class="chip pos-chip"><span class="tkr">BEAM</span><span class="chg pos">+7.05%</span></a><a href="https://finance.yahoo.com/quote/SGMO" target="_blank" class="chip pos-chip"><span class="tkr">SGMO</span><span class="chg pos">+5.26%</span></a></div>
+    <div class="chips"><a href="https://finance.yahoo.com/quote/NTLA" target="_blank" class="chip pos-chip"><span class="tkr">NTLA</span><span class="chg pos">+6.58%</span></a><a href="https://finance.yahoo.com/quote/EDIT" target="_blank" class="chip pos-chip"><span class="tkr">EDIT</span><span class="chg pos">+15.91%</span></a><a href="https://finance.yahoo.com/quote/CRSP" target="_blank" class="chip pos-chip"><span class="tkr">CRSP</span><span class="chg pos">+3.76%</span></a><a href="https://finance.yahoo.com/quote/BEAM" target="_blank" class="chip pos-chip"><span class="tkr">BEAM</span><span class="chg pos">+7.05%</span></a><a href="https://finance.yahoo.com/quote/BLUE" target="_blank" class="chip "><span class="tkr">BLUE</span><span class="chg dim">—</span></a></div>
     <div class="jp-row"><span class="jp-label">🇯🇵</span><div class="chips"><a href="https://minkabu.jp/stock/4503" target="_blank" class="chip jp-chip"><span class="tkr">4503</span><span class="jpname">アステラス</span></a><a href="https://minkabu.jp/stock/4151" target="_blank" class="chip jp-chip"><span class="tkr">4151</span><span class="jpname">協和キリン</span></a><a href="https://minkabu.jp/stock/4568" target="_blank" class="chip jp-chip"><span class="tkr">4568</span><span class="jpname">第一三共</span></a><a href="https://minkabu.jp/stock/4523" target="_blank" class="chip jp-chip"><span class="tkr">4523</span><span class="jpname">エーザイ</span></a><a href="https://minkabu.jp/stock/4519" target="_blank" class="chip jp-chip"><span class="tkr">4519</span><span class="jpname">中外製薬</span></a></div></div>
   </div>
   <div class="ret">
-    <div class="rp pos">+7.71%</div>
+    <div class="rp pos">+8.32%</div>
     <div class="rl">テーマ平均</div>
   </div>
 </div></div>
