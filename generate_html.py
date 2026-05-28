@@ -60,7 +60,7 @@ THEMES = [
      "jp":[{"code":"6501","name":"日立製作所"},{"code":"6702","name":"富士通"},{"code":"9432","name":"NTT"},{"code":"6503","name":"三菱電機"},{"code":"6701","name":"NEC"}]},
 
     {"id":"fintech","type":"hot","icon":"💳","name":"フィンテック・決済",
-     "stocks":["V","MA","PYPL","NU","SQ"],
+     "stocks":["V","MA","PYPL","NU","AFRM"],
      "jp":[{"code":"3769","name":"GMO-PG"},{"code":"4385","name":"メルカリ"},{"code":"8473","name":"SBI HD"},{"code":"4689","name":"LINEヤフー"},{"code":"3774","name":"IIJ"}]},
 
     {"id":"govtech","type":"hot","icon":"🏛️","name":"国防テック・DIU",
@@ -117,15 +117,15 @@ THEMES = [
      "jp":[{"code":"8801","name":"三井不動産"},{"code":"8802","name":"三菱地所"},{"code":"8830","name":"住友不動産"},{"code":"8804","name":"東京建物"}]},
 
     {"id":"bio","type":"cold","icon":"🔬","name":"臨床段階バイオテック",
-     "stocks":["XBI","SRPT","RARE","FOLD","ARQT"],
+     "stocks":["XBI","SRPT","RARE","ALKS","ARQT"],
      "jp":[{"code":"4503","name":"アステラス"},{"code":"4523","name":"エーザイ"},{"code":"4151","name":"協和キリン"},{"code":"4568","name":"第一三共"},{"code":"4519","name":"中外製薬"}]},
 
     {"id":"coal","type":"cold","icon":"⛽","name":"石炭・旧来型化石燃料",
-     "stocks":["BTU","ARCH","AMR","CEIX","HNRG"],
+     "stocks":["BTU","METC","AMR","ARLP","HNRG"],
      "jp":[{"code":"1605","name":"INPEX"},{"code":"5020","name":"ENEOS HD"},{"code":"1662","name":"石油資源開発"},{"code":"5019","name":"出光興産"}]},
 
     {"id":"media","type":"cold","icon":"📺","name":"旧来型メディア・放送",
-     "stocks":["PARA","WBD","AMCX","DIS","NWSA"],
+     "stocks":["FOXA","WBD","AMCX","DIS","NWSA"],
      "jp":[{"code":"9404","name":"日本テレビHD"},{"code":"9401","name":"TBS HD"},{"code":"9413","name":"テレビ東京HD"},{"code":"4324","name":"電通グループ"},{"code":"2433","name":"博報堂DY"}]},
 
     {"id":"regbk","type":"cold","icon":"🏦","name":"地方銀行・リージョナル",
@@ -133,7 +133,7 @@ THEMES = [
      "jp":[{"code":"8369","name":"京都銀行"},{"code":"8379","name":"広島銀行"},{"code":"8355","name":"静岡銀行"},{"code":"8341","name":"七十七銀行"}]},
 
     {"id":"chnev","type":"cold","icon":"🚙","name":"中国EV",
-     "stocks":["NIO","XPEV","LI","ZK","KNDI"],
+     "stocks":["NIO","XPEV","LI","PSNY","KNDI"],
      "jp":[{"code":"7203","name":"トヨタ自動車"},{"code":"7267","name":"本田技研"},{"code":"7201","name":"日産自動車"},{"code":"7261","name":"マツダ"}]},
 
     {"id":"h2","type":"cold","icon":"🔌","name":"水素・燃料電池",
@@ -141,7 +141,7 @@ THEMES = [
      "jp":[{"code":"7203","name":"トヨタ自動車"},{"code":"7267","name":"本田技研"},{"code":"5020","name":"ENEOS HD"},{"code":"7011","name":"三菱重工"},{"code":"4063","name":"信越化学"}]},
 
     {"id":"retail","type":"cold","icon":"🏬","name":"旧来型小売・百貨店",
-     "stocks":["TGT","M","KSS","GPS","DDS"],
+     "stocks":["TGT","M","KSS","ROST","DDS"],
      "jp":[{"code":"8267","name":"イオン"},{"code":"3382","name":"セブン&アイHD"},{"code":"2651","name":"ローソン"},{"code":"7453","name":"良品計画"},{"code":"3099","name":"三越伊勢丹"}]},
 
     {"id":"agri","type":"cold","icon":"🌱","name":"農業・肥料",
@@ -157,7 +157,7 @@ THEMES = [
      "jp":[{"code":"8766","name":"東京海上HD"},{"code":"8725","name":"MS&AD"},{"code":"8750","name":"第一生命HD"},{"code":"8630","name":"SOMPO HD"},{"code":"7181","name":"かんぽ生命"}]},
 
     {"id":"telco","type":"cold","icon":"📡","name":"旧来型通信キャリア",
-     "stocks":["T","VZ","LUMN","ATUS","TMUS"],
+     "stocks":["T","VZ","LUMN","CHTR","TMUS"],
      "jp":[{"code":"9432","name":"NTT"},{"code":"9433","name":"KDDI"},{"code":"9434","name":"ソフトバンク"},{"code":"9613","name":"NTTデータ"}]},
 
     {"id":"em","type":"cold","icon":"🌍","name":"新興国株（EM）",
@@ -165,7 +165,7 @@ THEMES = [
      "jp":[{"code":"9984","name":"ソフトバンクG"},{"code":"8306","name":"三菱UFJ FG"},{"code":"8591","name":"オリックス"},{"code":"7203","name":"トヨタ自動車"}]},
 
     {"id":"solar","type":"cold","icon":"☀️","name":"太陽光・風力（旧来型）",
-     "stocks":["ENPH","SEDG","RUN","FSLR","NOVA"],
+     "stocks":["ENPH","SEDG","RUN","FSLR","ARRY"],
      "jp":[{"code":"9501","name":"東京電力HD"},{"code":"9503","name":"関西電力"},{"code":"9531","name":"東京ガス"},{"code":"5020","name":"ENEOS HD"},{"code":"6506","name":"安川電機"}]},
 
     {"id":"creit","type":"cold","icon":"🏙️","name":"商業用不動産・REIT全般",
@@ -173,11 +173,11 @@ THEMES = [
      "jp":[{"code":"8801","name":"三井不動産"},{"code":"8802","name":"三菱地所"},{"code":"8830","name":"住友不動産"},{"code":"8804","name":"東京建物"},{"code":"8905","name":"イオンモール"}]},
 
     {"id":"gene","type":"cold","icon":"🧬","name":"遺伝子治療・ゲノム編集",
-     "stocks":["NTLA","EDIT","CRSP","BEAM","BLUE"],
+     "stocks":["NTLA","EDIT","CRSP","BEAM","SGMO"],
      "jp":[{"code":"4503","name":"アステラス"},{"code":"4151","name":"協和キリン"},{"code":"4568","name":"第一三共"},{"code":"4523","name":"エーザイ"},{"code":"4519","name":"中外製薬"}]},
 
     {"id":"shale","type":"cold","icon":"🛢️","name":"シェールオイル・ガス",
-     "stocks":["OXY","DVN","HES","FANG","CTRA"],
+     "stocks":["OXY","DVN","APA","FANG","SWN"],
      "jp":[{"code":"1605","name":"INPEX"},{"code":"5020","name":"ENEOS HD"},{"code":"1662","name":"石油資源開発"},{"code":"5019","name":"出光興産"},{"code":"9531","name":"東京ガス"}]},
 
     {"id":"cruise","type":"cold","icon":"🚢","name":"クルーズ・旅行（景気敏感）",
@@ -324,6 +324,8 @@ header{{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop
 .ts{{font-size:11px;color:var(--tm);text-align:right}}
 .qr-btn{{background:var(--sf2);border:1px solid var(--bd);color:var(--tm);border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:5px;white-space:nowrap}}
 .qr-btn:hover{{border-color:var(--ac);color:var(--ac)}}
+.switch-btn{{background:rgba(76,175,80,.12);border:1px solid rgba(76,175,80,.35);color:#66bb6a;border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:all .15s}}
+.switch-btn:hover{{background:rgba(76,175,80,.25);border-color:#66bb6a}}
 #qr-overlay{{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center}}
 #qr-box{{background:var(--sf);border:1px solid var(--bd);border-radius:20px;padding:28px;text-align:center;z-index:201;max-width:280px;width:90%}}
 #qr-box h3{{font-size:15px;margin-bottom:16px}}
@@ -402,6 +404,7 @@ header{{position:sticky;top:0;z-index:100;background:rgba(10,10,15,.95);backdrop
         <div style="color:var(--g);font-weight:700">✅ 引け後データ（確定値）</div>
         <div>取得: {jst_str}</div>
       </div>
+      <a href="jp-themes.html" class="switch-btn">🗾 日本株テーマ</a>
       <button class="qr-btn" onclick="showQR()">📱 QR</button>
     </div>
   </div>
@@ -515,6 +518,16 @@ def upload_to_github(html, jst_now):
         with urllib.request.urlopen(req) as res:
             pass
         pages_url = f"https://{user}.github.io/{repo}/"
+
+        # GitHub Pages を強制再デプロイ
+        try:
+            pages_api = f"https://api.github.com/repos/{user}/{repo}/pages/builds"
+            req2 = urllib.request.Request(pages_api, data=b"{}", headers=headers, method="POST")
+            with urllib.request.urlopen(req2) as r2:
+                print(f"Pages 再デプロイ要求: {r2.status}")
+        except Exception as pe:
+            print(f"Pages 再デプロイ要求エラー（無視）: {pe}")
+
         print(f"アップロード完了！")
         print(f"\n{'='*50}")
         print(f"  スマホURL: {pages_url}")
