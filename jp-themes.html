@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>日本株テーマランキング 2026-05-28｜東京市場引け後データ</title>
+<style>
+:root{--bg:#0a0f0a;--sf:#121a12;--sf2:#1c281c;--bd:#253525;--tx:#e8f0e8;--tm:#6a8a6a;--td:#3a5a3a;
+--g:#00d084;--gb:rgba(0,208,132,.1);--r:#ff4d6a;--rb:rgba(255,77,106,.1);
+--ac:#4caf50;--ye:#f7c06f;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;min-height:100vh}
+header{position:sticky;top:0;z-index:100;background:rgba(10,15,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.hi{max-width:900px;margin:0 auto;padding:0 18px;height:54px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:8px}
+.lb{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#4caf50,#81c784);display:flex;align-items:center;justify-content:center;font-size:15px}
+.lt{font-size:14px;font-weight:700}
+.ts{font-size:11px;color:var(--tm);text-align:right}
+.switch-btn{background:rgba(124,111,247,.15);border:1px solid rgba(124,111,247,.4);color:#a78bfa;border-radius:8px;padding:5px 11px;font-size:12px;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:5px;white-space:nowrap;transition:all .15s}
+.switch-btn:hover{background:rgba(124,111,247,.3);border-color:#a78bfa}
+.ab{max-width:900px;margin:14px auto 0;padding:0 18px}
+.ai{border-radius:12px;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;background:rgba(76,175,80,.08);border:1px solid rgba(76,175,80,.3)}
+.al{display:flex;align-items:center;gap:10px}
+.ad{width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.alb{font-size:13px;font-weight:700;color:var(--ac)}
+.as{font-size:11px;color:var(--tm)}
+.ar{font-size:11px;color:var(--tm)}
+.stats{max-width:900px;margin:12px auto 0;padding:0 18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stat{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:11px 14px;text-align:center}
+.sv{font-size:20px;font-weight:800;line-height:1}
+.sv.pos{color:var(--g)} .sv.neg{color:var(--r)} .sv.neu{color:var(--ac)}
+.sl{font-size:10px;color:var(--tm);margin-top:4px}
+.tabs{max-width:900px;margin:14px auto 0;padding:0 18px;display:flex;gap:8px}
+.tab{flex:1;padding:11px 8px;border-radius:12px;border:1px solid var(--bd);background:var(--sf);color:var(--tm);font-size:13px;font-weight:600;cursor:pointer;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab.hot{background:var(--gb);border-color:var(--g);color:var(--g)}
+.tab.cold{background:var(--rb);border-color:var(--r);color:var(--r)}
+.ta{font-size:12px;font-weight:800;padding:1px 7px;border-radius:20px;background:currentColor;color:var(--bg);opacity:.9}
+.ch{max-width:900px;margin:14px auto 5px;padding:0 18px;display:grid;grid-template-columns:44px 1fr 106px;gap:10px}
+.cl{font-size:10px;color:var(--td);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.rl{max-width:900px;margin:0 auto 40px;padding:0 18px}
+.panel{display:none} .panel.active{display:block}
+.item{position:relative;overflow:hidden;display:grid;grid-template-columns:44px 1fr 106px;align-items:center;gap:10px;padding:13px 14px;border-radius:14px;border:1px solid transparent;background:var(--sf);margin-bottom:5px;transition:all .15s}
+.item:hover{border-color:var(--bd);background:var(--sf2);transform:translateY(-1px)}
+.item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px}
+.item.hot::before{background:var(--g)} .item.cold::before{background:var(--r)}
+.bg-bar{position:absolute;top:0;right:0;bottom:0;pointer-events:none;border-radius:0 14px 14px 0;opacity:.055}
+.item.hot .bg-bar{background:linear-gradient(90deg,transparent,var(--g))}
+.item.cold .bg-bar{background:linear-gradient(90deg,transparent,var(--r))}
+.rn{width:44px;text-align:center;font-size:18px;font-weight:800;color:var(--td);z-index:1}
+.ti{z-index:1;min-width:0}
+.tn{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;margin-bottom:6px;line-height:1.2}
+.tic{font-size:15px;flex-shrink:0}
+.tnt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chips{display:flex;flex-wrap:wrap;gap:4px}
+.chip{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:600;padding:2px 6px 2px 7px;border-radius:6px;background:var(--sf2);border:1px solid var(--bd);color:var(--tm);text-decoration:none;cursor:pointer;transition:all .15s}
+.chip:hover{background:var(--bd);transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.chip.pos-chip{border-color:rgba(0,208,132,.25)} .chip.neg-chip{border-color:rgba(255,77,106,.25)}
+.chip.pos-chip:hover{border-color:rgba(0,208,132,.6);background:rgba(0,208,132,.08)}
+.chip.neg-chip:hover{border-color:rgba(255,77,106,.6);background:rgba(255,77,106,.08)}
+.tkr{letter-spacing:.3px}
+.chg{font-weight:700}
+.chg.pos{color:var(--g)} .chg.neg{color:var(--r)} .chg.dim{color:var(--td)}
+.ret{z-index:1;text-align:right}
+.rp{font-size:20px;font-weight:800;letter-spacing:-.5px;line-height:1}
+.rp.pos{color:var(--g)} .rp.neg{color:var(--r)} .rp.dim{color:var(--td);font-size:14px}
+.rl{font-size:10px;color:var(--td);margin-top:3px}
+.disc{max-width:900px;margin:0 auto 40px;padding:16px 18px 0;border-top:1px solid var(--bd);font-size:11px;color:var(--td);line-height:1.7}
+@media(max-width:560px){
+  .item{grid-template-columns:32px 1fr 82px;padding:11px 10px}
+  .rn{width:32px;font-size:14px}
+  .rp{font-size:15px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hi">
+    <div class="logo">
+      <div class="lb">🗾</div>
+      <span class="lt">日本株テーマランキング</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="ts">
+        <div style="color:var(--g);font-weight:700">✅ 東京市場引け後データ</div>
+        <div>取得: 2026/05/28 20:58 JST</div>
+      </div>
+      <a href="index.html" class="switch-btn">🇺🇸 米国株テーマ</a>
+    </div>
+  </div>
+</header>
+<div class="ab">
+  <div class="ai">
+    <div class="al">
+      <div class="ad"></div>
+      <div>
+        <div class="alb">⚡ 東京市場引け後データ — 日本株テーマ騰落率</div>
+        <div class="as">yfinance 取得 / 前日終値比 1日騰落率 / 構成銘柄の単純平均 / みんかぶへリンク</div>
+      </div>
+    </div>
+    <div class="ar">更新: 2026/05/28 20:58 JST</div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="sv pos">📰  +1.66%</div><div class="sl">本日最強テーマ</div></div>
+  <div class="stat"><div class="sv neg">🎰 -2.20%</div><div class="sl">本日最弱テーマ</div></div>
+  <div class="stat"><div class="sv neu">40</div><div class="sl">追跡テーマ数</div></div>
+</div>
+<div class="tabs">
+  <button class="tab hot" id="th" onclick="sw('hot')">🔥 人気テーマ <span class="ta">-0.64%</span></button>
+  <button class="tab" id="tc" onclick="sw('cold')">🧊 不人気テーマ <span class="ta">-0.42%</span></button>
+</div>
+<div class="ch">
+  <span class="cl">#</span>
+  <span class="cl">テーマ / 銘柄（前日比）</span>
+  <span class="cl" style="text-align:right">テーマ平均</span>
+</div>
+<div class="rl">
+  <div class="panel active" id="ph">
+<div class="item hot">
+  <div class="bg-bar" style="width:9.28%"></div>
+  <div class="rn">🥇</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚗</span><span class="tnt">自動車・モビリティ</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/7203" target="_blank" class="chip pos-chip"><span class="tkr">7203</span><span class="chg pos">+0.73%</span></a><a href="https://minkabu.jp/stock/7267" target="_blank" class="chip pos-chip"><span class="tkr">7267</span><span class="chg pos">+1.41%</span></a><a href="https://minkabu.jp/stock/7201" target="_blank" class="chip pos-chip"><span class="tkr">7201</span><span class="chg pos">+2.44%</span></a><a href="https://minkabu.jp/stock/7261" target="_blank" class="chip pos-chip"><span class="tkr">7261</span><span class="chg pos">+0.98%</span></a><a href="https://minkabu.jp/stock/7269" target="_blank" class="chip pos-chip"><span class="tkr">7269</span><span class="chg pos">+0.24%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.16%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:7.12%"></div>
+  <div class="rn">🥈</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💡</span><span class="tnt">光・フォトニクス</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6965" target="_blank" class="chip pos-chip"><span class="tkr">6965</span><span class="chg pos">+4.56%</span></a><a href="https://minkabu.jp/stock/7741" target="_blank" class="chip neg-chip"><span class="tkr">7741</span><span class="chg neg">-0.83%</span></a><a href="https://minkabu.jp/stock/5803" target="_blank" class="chip neg-chip"><span class="tkr">5803</span><span class="chg neg">-2.39%</span></a><a href="https://minkabu.jp/stock/6758" target="_blank" class="chip neg-chip"><span class="tkr">6758</span><span class="chg neg">-2.10%</span></a><a href="https://minkabu.jp/stock/6762" target="_blank" class="chip pos-chip"><span class="tkr">6762</span><span class="chg pos">+5.21%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.89%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:5.68%"></div>
+  <div class="rn">🥉</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🤖</span><span class="tnt">AI・DXシステム</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6701" target="_blank" class="chip neg-chip"><span class="tkr">6701</span><span class="chg neg">-1.45%</span></a><a href="https://minkabu.jp/stock/6702" target="_blank" class="chip pos-chip"><span class="tkr">6702</span><span class="chg pos">+0.03%</span></a><a href="https://minkabu.jp/stock/6501" target="_blank" class="chip pos-chip"><span class="tkr">6501</span><span class="chg pos">+4.31%</span></a><a href="https://minkabu.jp/stock/4307" target="_blank" class="chip pos-chip"><span class="tkr">4307</span><span class="chg pos">+1.79%</span></a><a href="https://minkabu.jp/stock/3626" target="_blank" class="chip neg-chip"><span class="tkr">3626</span><span class="chg neg">-1.12%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.71%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:3.04%"></div>
+  <div class="rn">4</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">📡</span><span class="tnt">通信インフラ</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9432" target="_blank" class="chip neg-chip"><span class="tkr">9432</span><span class="chg neg">-0.60%</span></a><a href="https://minkabu.jp/stock/9433" target="_blank" class="chip pos-chip"><span class="tkr">9433</span><span class="chg pos">+0.91%</span></a><a href="https://minkabu.jp/stock/9434" target="_blank" class="chip neg-chip"><span class="tkr">9434</span><span class="chg neg">-0.59%</span></a><a href="https://minkabu.jp/stock/9719" target="_blank" class="chip "><span class="tkr">9719</span><span class="chg dim">—</span></a><a href="https://minkabu.jp/stock/4307" target="_blank" class="chip pos-chip"><span class="tkr">4307</span><span class="chg pos">+1.79%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.38%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:2.96%"></div>
+  <div class="rn">5</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🗼</span><span class="tnt">訪日インバウンド</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9202" target="_blank" class="chip pos-chip"><span class="tkr">9202</span><span class="chg pos">+0.10%</span></a><a href="https://minkabu.jp/stock/9201" target="_blank" class="chip neg-chip"><span class="tkr">9201</span><span class="chg neg">-1.10%</span></a><a href="https://minkabu.jp/stock/4661" target="_blank" class="chip pos-chip"><span class="tkr">4661</span><span class="chg pos">+2.32%</span></a><a href="https://minkabu.jp/stock/9603" target="_blank" class="chip pos-chip"><span class="tkr">9603</span><span class="chg pos">+0.97%</span></a><a href="https://minkabu.jp/stock/3543" target="_blank" class="chip neg-chip"><span class="tkr">3543</span><span class="chg neg">-0.46%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.37%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:2.32%"></div>
+  <div class="rn">6</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏗️</span><span class="tnt">建設・インフラ</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6301" target="_blank" class="chip neg-chip"><span class="tkr">6301</span><span class="chg neg">-0.83%</span></a><a href="https://minkabu.jp/stock/6326" target="_blank" class="chip pos-chip"><span class="tkr">6326</span><span class="chg pos">+1.96%</span></a><a href="https://minkabu.jp/stock/1801" target="_blank" class="chip pos-chip"><span class="tkr">1801</span><span class="chg pos">+0.00%</span></a><a href="https://minkabu.jp/stock/1802" target="_blank" class="chip pos-chip"><span class="tkr">1802</span><span class="chg pos">+1.27%</span></a><a href="https://minkabu.jp/stock/1803" target="_blank" class="chip neg-chip"><span class="tkr">1803</span><span class="chg neg">-0.96%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.29%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:1.2%"></div>
+  <div class="rn">7</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🛒</span><span class="tnt">eコマース・D2C</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/4755" target="_blank" class="chip neg-chip"><span class="tkr">4755</span><span class="chg neg">-0.83%</span></a><a href="https://minkabu.jp/stock/4385" target="_blank" class="chip pos-chip"><span class="tkr">4385</span><span class="chg pos">+0.37%</span></a><a href="https://minkabu.jp/stock/9983" target="_blank" class="chip pos-chip"><span class="tkr">9983</span><span class="chg pos">+0.72%</span></a><a href="https://minkabu.jp/stock/4689" target="_blank" class="chip pos-chip"><span class="tkr">4689</span><span class="chg pos">+0.48%</span></a><a href="https://minkabu.jp/stock/3064" target="_blank" class="chip neg-chip"><span class="tkr">3064</span><span class="chg neg">-1.47%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.15%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:4.0%"></div>
+  <div class="rn">8</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💳</span><span class="tnt">フィンテック・決済</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/3769" target="_blank" class="chip neg-chip"><span class="tkr">3769</span><span class="chg neg">-0.81%</span></a><a href="https://minkabu.jp/stock/4385" target="_blank" class="chip pos-chip"><span class="tkr">4385</span><span class="chg pos">+0.37%</span></a><a href="https://minkabu.jp/stock/8473" target="_blank" class="chip neg-chip"><span class="tkr">8473</span><span class="chg neg">-1.13%</span></a><a href="https://minkabu.jp/stock/4689" target="_blank" class="chip pos-chip"><span class="tkr">4689</span><span class="chg pos">+0.48%</span></a><a href="https://minkabu.jp/stock/3774" target="_blank" class="chip neg-chip"><span class="tkr">3774</span><span class="chg neg">-1.43%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.50%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:6.56%"></div>
+  <div class="rn">9</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">⛽</span><span class="tnt">資源・エネルギー自立</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/1605" target="_blank" class="chip pos-chip"><span class="tkr">1605</span><span class="chg pos">+0.11%</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip neg-chip"><span class="tkr">5020</span><span class="chg neg">-0.35%</span></a><a href="https://minkabu.jp/stock/9531" target="_blank" class="chip neg-chip"><span class="tkr">9531</span><span class="chg neg">-2.74%</span></a><a href="https://minkabu.jp/stock/5019" target="_blank" class="chip neg-chip"><span class="tkr">5019</span><span class="chg neg">-0.90%</span></a><a href="https://minkabu.jp/stock/1662" target="_blank" class="chip neg-chip"><span class="tkr">1662</span><span class="chg neg">-0.21%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.82%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:9.04%"></div>
+  <div class="rn">10</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🧠</span><span class="tnt">HBM・先端半導体材料</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8035" target="_blank" class="chip neg-chip"><span class="tkr">8035</span><span class="chg neg">-0.34%</span></a><a href="https://minkabu.jp/stock/6146" target="_blank" class="chip neg-chip"><span class="tkr">6146</span><span class="chg neg">-1.89%</span></a><a href="https://minkabu.jp/stock/6857" target="_blank" class="chip neg-chip"><span class="tkr">6857</span><span class="chg neg">-2.91%</span></a><a href="https://minkabu.jp/stock/4063" target="_blank" class="chip neg-chip"><span class="tkr">4063</span><span class="chg neg">-0.84%</span></a><a href="https://minkabu.jp/stock/3407" target="_blank" class="chip pos-chip"><span class="tkr">3407</span><span class="chg pos">+0.31%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.13%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:9.12%"></div>
+  <div class="rn">11</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🧪</span><span class="tnt">素材・特殊化学</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/4063" target="_blank" class="chip neg-chip"><span class="tkr">4063</span><span class="chg neg">-0.84%</span></a><a href="https://minkabu.jp/stock/4183" target="_blank" class="chip neg-chip"><span class="tkr">4183</span><span class="chg neg">-2.13%</span></a><a href="https://minkabu.jp/stock/4188" target="_blank" class="chip pos-chip"><span class="tkr">4188</span><span class="chg pos">+0.09%</span></a><a href="https://minkabu.jp/stock/4004" target="_blank" class="chip neg-chip"><span class="tkr">4004</span><span class="chg neg">-3.14%</span></a><a href="https://minkabu.jp/stock/3407" target="_blank" class="chip pos-chip"><span class="tkr">3407</span><span class="chg pos">+0.31%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.14%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:9.2%"></div>
+  <div class="rn">12</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏦</span><span class="tnt">大手金融・証券</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8306" target="_blank" class="chip neg-chip"><span class="tkr">8306</span><span class="chg neg">-1.62%</span></a><a href="https://minkabu.jp/stock/8316" target="_blank" class="chip neg-chip"><span class="tkr">8316</span><span class="chg neg">-1.70%</span></a><a href="https://minkabu.jp/stock/8411" target="_blank" class="chip neg-chip"><span class="tkr">8411</span><span class="chg neg">-2.11%</span></a><a href="https://minkabu.jp/stock/8604" target="_blank" class="chip neg-chip"><span class="tkr">8604</span><span class="chg neg">-0.75%</span></a><a href="https://minkabu.jp/stock/8601" target="_blank" class="chip pos-chip"><span class="tkr">8601</span><span class="chg pos">+0.41%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.15%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:9.44%"></div>
+  <div class="rn">13</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏛️</span><span class="tnt">保険・ノンバンク金融</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8766" target="_blank" class="chip neg-chip"><span class="tkr">8766</span><span class="chg neg">-2.42%</span></a><a href="https://minkabu.jp/stock/8725" target="_blank" class="chip neg-chip"><span class="tkr">8725</span><span class="chg neg">-1.05%</span></a><a href="https://minkabu.jp/stock/8630" target="_blank" class="chip neg-chip"><span class="tkr">8630</span><span class="chg neg">-0.52%</span></a><a href="https://minkabu.jp/stock/8591" target="_blank" class="chip neg-chip"><span class="tkr">8591</span><span class="chg neg">-0.52%</span></a><a href="https://minkabu.jp/stock/8697" target="_blank" class="chip neg-chip"><span class="tkr">8697</span><span class="chg neg">-1.40%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.18%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:9.76%"></div>
+  <div class="rn">14</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">⚡</span><span class="tnt">電力インフラ・送電</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6504" target="_blank" class="chip neg-chip"><span class="tkr">6504</span><span class="chg neg">-7.11%</span></a><a href="https://minkabu.jp/stock/6506" target="_blank" class="chip pos-chip"><span class="tkr">6506</span><span class="chg pos">+0.41%</span></a><a href="https://minkabu.jp/stock/5631" target="_blank" class="chip neg-chip"><span class="tkr">5631</span><span class="chg neg">-2.00%</span></a><a href="https://minkabu.jp/stock/6273" target="_blank" class="chip pos-chip"><span class="tkr">6273</span><span class="chg pos">+2.12%</span></a><a href="https://minkabu.jp/stock/6361" target="_blank" class="chip pos-chip"><span class="tkr">6361</span><span class="chg pos">+0.49%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.22%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:10.56%"></div>
+  <div class="rn">15</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">💊</span><span class="tnt">医薬品・創薬</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/4519" target="_blank" class="chip neg-chip"><span class="tkr">4519</span><span class="chg neg">-1.71%</span></a><a href="https://minkabu.jp/stock/4523" target="_blank" class="chip neg-chip"><span class="tkr">4523</span><span class="chg neg">-3.51%</span></a><a href="https://minkabu.jp/stock/4503" target="_blank" class="chip neg-chip"><span class="tkr">4503</span><span class="chg neg">-0.47%</span></a><a href="https://minkabu.jp/stock/4568" target="_blank" class="chip neg-chip"><span class="tkr">4568</span><span class="chg neg">-0.73%</span></a><a href="https://minkabu.jp/stock/4502" target="_blank" class="chip neg-chip"><span class="tkr">4502</span><span class="chg neg">-0.16%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.32%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:11.44%"></div>
+  <div class="rn">16</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🦾</span><span class="tnt">ロボティクス・工場自動化</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6954" target="_blank" class="chip neg-chip"><span class="tkr">6954</span><span class="chg neg">-2.08%</span></a><a href="https://minkabu.jp/stock/6506" target="_blank" class="chip pos-chip"><span class="tkr">6506</span><span class="chg pos">+0.41%</span></a><a href="https://minkabu.jp/stock/7013" target="_blank" class="chip neg-chip"><span class="tkr">7013</span><span class="chg neg">-3.12%</span></a><a href="https://minkabu.jp/stock/6326" target="_blank" class="chip pos-chip"><span class="tkr">6326</span><span class="chg pos">+1.96%</span></a><a href="https://minkabu.jp/stock/6302" target="_blank" class="chip neg-chip"><span class="tkr">6302</span><span class="chg neg">-4.32%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.43%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:11.52%"></div>
+  <div class="rn">17</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏥</span><span class="tnt">ヘルスケアIT・デジタル医療</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/2413" target="_blank" class="chip neg-chip"><span class="tkr">2413</span><span class="chg neg">-2.90%</span></a><a href="https://minkabu.jp/stock/4307" target="_blank" class="chip pos-chip"><span class="tkr">4307</span><span class="chg pos">+1.79%</span></a><a href="https://minkabu.jp/stock/6701" target="_blank" class="chip neg-chip"><span class="tkr">6701</span><span class="chg neg">-1.45%</span></a><a href="https://minkabu.jp/stock/4523" target="_blank" class="chip neg-chip"><span class="tkr">4523</span><span class="chg neg">-3.51%</span></a><a href="https://minkabu.jp/stock/3626" target="_blank" class="chip neg-chip"><span class="tkr">3626</span><span class="chg neg">-1.12%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.44%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:12.24%"></div>
+  <div class="rn">18</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">☢️</span><span class="tnt">原子力エネルギー</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9501" target="_blank" class="chip neg-chip"><span class="tkr">9501</span><span class="chg neg">-2.62%</span></a><a href="https://minkabu.jp/stock/9503" target="_blank" class="chip neg-chip"><span class="tkr">9503</span><span class="chg neg">-1.29%</span></a><a href="https://minkabu.jp/stock/7011" target="_blank" class="chip neg-chip"><span class="tkr">7011</span><span class="chg neg">-2.41%</span></a><a href="https://minkabu.jp/stock/1963" target="_blank" class="chip neg-chip"><span class="tkr">1963</span><span class="chg neg">-2.19%</span></a><a href="https://minkabu.jp/stock/6503" target="_blank" class="chip pos-chip"><span class="tkr">6503</span><span class="chg pos">+0.88%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.53%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:13.52%"></div>
+  <div class="rn">19</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🛡️</span><span class="tnt">防衛・宇宙航空</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/7011" target="_blank" class="chip neg-chip"><span class="tkr">7011</span><span class="chg neg">-2.41%</span></a><a href="https://minkabu.jp/stock/7013" target="_blank" class="chip neg-chip"><span class="tkr">7013</span><span class="chg neg">-3.12%</span></a><a href="https://minkabu.jp/stock/7012" target="_blank" class="chip neg-chip"><span class="tkr">7012</span><span class="chg neg">-2.80%</span></a><a href="https://minkabu.jp/stock/6268" target="_blank" class="chip neg-chip"><span class="tkr">6268</span><span class="chg neg">-1.01%</span></a><a href="https://minkabu.jp/stock/6503" target="_blank" class="chip pos-chip"><span class="tkr">6503</span><span class="chg pos">+0.88%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.69%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item hot">
+  <div class="bg-bar" style="width:15.04%"></div>
+  <div class="rn">20</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔬</span><span class="tnt">半導体製造装置</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8035" target="_blank" class="chip neg-chip"><span class="tkr">8035</span><span class="chg neg">-0.34%</span></a><a href="https://minkabu.jp/stock/6857" target="_blank" class="chip neg-chip"><span class="tkr">6857</span><span class="chg neg">-2.91%</span></a><a href="https://minkabu.jp/stock/6920" target="_blank" class="chip neg-chip"><span class="tkr">6920</span><span class="chg neg">-3.42%</span></a><a href="https://minkabu.jp/stock/6146" target="_blank" class="chip neg-chip"><span class="tkr">6146</span><span class="chg neg">-1.89%</span></a><a href="https://minkabu.jp/stock/4063" target="_blank" class="chip neg-chip"><span class="tkr">4063</span><span class="chg neg">-0.84%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.88%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div></div>
+  <div class="panel" id="pc">
+<div class="item cold">
+  <div class="bg-bar" style="width:17.6%"></div>
+  <div class="rn">🥇</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🎰</span><span class="tnt">パチンコ・アミューズメント</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6460" target="_blank" class="chip neg-chip"><span class="tkr">6460</span><span class="chg neg">-3.33%</span></a><a href="https://minkabu.jp/stock/9766" target="_blank" class="chip neg-chip"><span class="tkr">9766</span><span class="chg neg">-3.39%</span></a><a href="https://minkabu.jp/stock/7832" target="_blank" class="chip neg-chip"><span class="tkr">7832</span><span class="chg neg">-1.31%</span></a><a href="https://minkabu.jp/stock/4680" target="_blank" class="chip pos-chip"><span class="tkr">4680</span><span class="chg pos">+0.62%</span></a><a href="https://minkabu.jp/stock/9697" target="_blank" class="chip neg-chip"><span class="tkr">9697</span><span class="chg neg">-3.59%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-2.20%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:15.68%"></div>
+  <div class="rn">🥈</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🩺</span><span class="tnt">旧来型生命保険</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8750" target="_blank" class="chip neg-chip"><span class="tkr">8750</span><span class="chg neg">-2.19%</span></a><a href="https://minkabu.jp/stock/7181" target="_blank" class="chip neg-chip"><span class="tkr">7181</span><span class="chg neg">-4.43%</span></a><a href="https://minkabu.jp/stock/7182" target="_blank" class="chip neg-chip"><span class="tkr">7182</span><span class="chg neg">-1.35%</span></a><a href="https://minkabu.jp/stock/8308" target="_blank" class="chip neg-chip"><span class="tkr">8308</span><span class="chg neg">-0.46%</span></a><a href="https://minkabu.jp/stock/8795" target="_blank" class="chip neg-chip"><span class="tkr">8795</span><span class="chg neg">-1.35%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.96%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:12.48%"></div>
+  <div class="rn">🥉</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏦</span><span class="tnt">地方銀行</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8354" target="_blank" class="chip neg-chip"><span class="tkr">8354</span><span class="chg neg">-0.77%</span></a><a href="https://minkabu.jp/stock/8383" target="_blank" class="chip neg-chip"><span class="tkr">8383</span><span class="chg neg">-0.53%</span></a><a href="https://minkabu.jp/stock/8377" target="_blank" class="chip neg-chip"><span class="tkr">8377</span><span class="chg neg">-3.96%</span></a><a href="https://minkabu.jp/stock/8341" target="_blank" class="chip neg-chip"><span class="tkr">8341</span><span class="chg neg">-1.12%</span></a><a href="https://minkabu.jp/stock/8381" target="_blank" class="chip neg-chip"><span class="tkr">8381</span><span class="chg neg">-1.44%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.56%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:8.64%"></div>
+  <div class="rn">4</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🎮</span><span class="tnt">モバイルゲーム・メタバース</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/3765" target="_blank" class="chip neg-chip"><span class="tkr">3765</span><span class="chg neg">-0.18%</span></a><a href="https://minkabu.jp/stock/2432" target="_blank" class="chip neg-chip"><span class="tkr">2432</span><span class="chg neg">-0.19%</span></a><a href="https://minkabu.jp/stock/3632" target="_blank" class="chip pos-chip"><span class="tkr">3632</span><span class="chg pos">+2.20%</span></a><a href="https://minkabu.jp/stock/4751" target="_blank" class="chip neg-chip"><span class="tkr">4751</span><span class="chg neg">-2.06%</span></a><a href="https://minkabu.jp/stock/9684" target="_blank" class="chip neg-chip"><span class="tkr">9684</span><span class="chg neg">-5.16%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.08%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:8.08%"></div>
+  <div class="rn">5</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">📺</span><span class="tnt">旧来型メディア・放送</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9404" target="_blank" class="chip neg-chip"><span class="tkr">9404</span><span class="chg neg">-0.64%</span></a><a href="https://minkabu.jp/stock/9401" target="_blank" class="chip neg-chip"><span class="tkr">9401</span><span class="chg neg">-2.70%</span></a><a href="https://minkabu.jp/stock/9413" target="_blank" class="chip pos-chip"><span class="tkr">9413</span><span class="chg pos">+0.67%</span></a><a href="https://minkabu.jp/stock/4324" target="_blank" class="chip neg-chip"><span class="tkr">4324</span><span class="chg neg">-0.65%</span></a><a href="https://minkabu.jp/stock/2433" target="_blank" class="chip neg-chip"><span class="tkr">2433</span><span class="chg neg">-1.75%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-1.01%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:7.6%"></div>
+  <div class="rn">6</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚃</span><span class="tnt">旧来型鉄道・私鉄</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9022" target="_blank" class="chip neg-chip"><span class="tkr">9022</span><span class="chg neg">-0.83%</span></a><a href="https://minkabu.jp/stock/9020" target="_blank" class="chip neg-chip"><span class="tkr">9020</span><span class="chg neg">-2.38%</span></a><a href="https://minkabu.jp/stock/9021" target="_blank" class="chip pos-chip"><span class="tkr">9021</span><span class="chg pos">+0.15%</span></a><a href="https://minkabu.jp/stock/9005" target="_blank" class="chip neg-chip"><span class="tkr">9005</span><span class="chg neg">-0.93%</span></a><a href="https://minkabu.jp/stock/9008" target="_blank" class="chip neg-chip"><span class="tkr">9008</span><span class="chg neg">-0.74%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.95%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:7.04%"></div>
+  <div class="rn">7</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🌱</span><span class="tnt">農業・肥料・食品素材</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/4004" target="_blank" class="chip neg-chip"><span class="tkr">4004</span><span class="chg neg">-3.14%</span></a><a href="https://minkabu.jp/stock/4188" target="_blank" class="chip pos-chip"><span class="tkr">4188</span><span class="chg pos">+0.09%</span></a><a href="https://minkabu.jp/stock/4183" target="_blank" class="chip neg-chip"><span class="tkr">4183</span><span class="chg neg">-2.13%</span></a><a href="https://minkabu.jp/stock/2002" target="_blank" class="chip neg-chip"><span class="tkr">2002</span><span class="chg neg">-0.46%</span></a><a href="https://minkabu.jp/stock/2801" target="_blank" class="chip pos-chip"><span class="tkr">2801</span><span class="chg pos">+1.23%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.88%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:6.48%"></div>
+  <div class="rn">8</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏢</span><span class="tnt">商業不動産</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/8801" target="_blank" class="chip neg-chip"><span class="tkr">8801</span><span class="chg neg">-1.76%</span></a><a href="https://minkabu.jp/stock/8802" target="_blank" class="chip neg-chip"><span class="tkr">8802</span><span class="chg neg">-0.57%</span></a><a href="https://minkabu.jp/stock/8830" target="_blank" class="chip neg-chip"><span class="tkr">8830</span><span class="chg neg">-1.64%</span></a><a href="https://minkabu.jp/stock/8804" target="_blank" class="chip neg-chip"><span class="tkr">8804</span><span class="chg neg">-0.48%</span></a><a href="https://minkabu.jp/stock/3003" target="_blank" class="chip pos-chip"><span class="tkr">3003</span><span class="chg pos">+0.42%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.81%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:4.0%"></div>
+  <div class="rn">9</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🛢️</span><span class="tnt">旧来型化石燃料</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/1605" target="_blank" class="chip pos-chip"><span class="tkr">1605</span><span class="chg pos">+0.11%</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip neg-chip"><span class="tkr">5020</span><span class="chg neg">-0.35%</span></a><a href="https://minkabu.jp/stock/1662" target="_blank" class="chip neg-chip"><span class="tkr">1662</span><span class="chg neg">-0.21%</span></a><a href="https://minkabu.jp/stock/5019" target="_blank" class="chip neg-chip"><span class="tkr">5019</span><span class="chg neg">-0.90%</span></a><a href="https://minkabu.jp/stock/9502" target="_blank" class="chip neg-chip"><span class="tkr">9502</span><span class="chg neg">-1.16%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.50%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:3.28%"></div>
+  <div class="rn">10</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏭</span><span class="tnt">旧来型製造業（景気敏感）</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/5411" target="_blank" class="chip pos-chip"><span class="tkr">5411</span><span class="chg pos">+0.06%</span></a><a href="https://minkabu.jp/stock/6471" target="_blank" class="chip neg-chip"><span class="tkr">6471</span><span class="chg neg">-1.46%</span></a><a href="https://minkabu.jp/stock/5108" target="_blank" class="chip pos-chip"><span class="tkr">5108</span><span class="chg pos">+1.16%</span></a><a href="https://minkabu.jp/stock/7259" target="_blank" class="chip neg-chip"><span class="tkr">7259</span><span class="chg neg">-1.27%</span></a><a href="https://minkabu.jp/stock/5105" target="_blank" class="chip neg-chip"><span class="tkr">5105</span><span class="chg neg">-0.54%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.41%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:2.32%"></div>
+  <div class="rn">11</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔌</span><span class="tnt">水素・燃料電池</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/7203" target="_blank" class="chip pos-chip"><span class="tkr">7203</span><span class="chg pos">+0.73%</span></a><a href="https://minkabu.jp/stock/7267" target="_blank" class="chip pos-chip"><span class="tkr">7267</span><span class="chg pos">+1.41%</span></a><a href="https://minkabu.jp/stock/5020" target="_blank" class="chip neg-chip"><span class="tkr">5020</span><span class="chg neg">-0.35%</span></a><a href="https://minkabu.jp/stock/7011" target="_blank" class="chip neg-chip"><span class="tkr">7011</span><span class="chg neg">-2.41%</span></a><a href="https://minkabu.jp/stock/4063" target="_blank" class="chip neg-chip"><span class="tkr">4063</span><span class="chg neg">-0.84%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.29%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:1.84%"></div>
+  <div class="rn">12</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">⚙️</span><span class="tnt">自動車部品（景気敏感）</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/7259" target="_blank" class="chip neg-chip"><span class="tkr">7259</span><span class="chg neg">-1.27%</span></a><a href="https://minkabu.jp/stock/5108" target="_blank" class="chip pos-chip"><span class="tkr">5108</span><span class="chg pos">+1.16%</span></a><a href="https://minkabu.jp/stock/5105" target="_blank" class="chip neg-chip"><span class="tkr">5105</span><span class="chg neg">-0.54%</span></a><a href="https://minkabu.jp/stock/6902" target="_blank" class="chip neg-chip"><span class="tkr">6902</span><span class="chg neg">-0.13%</span></a><a href="https://minkabu.jp/stock/7240" target="_blank" class="chip neg-chip"><span class="tkr">7240</span><span class="chg neg">-0.37%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.23%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:1.76%"></div>
+  <div class="rn">13</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🇨🇳</span><span class="tnt">中国景気敏感</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9984" target="_blank" class="chip neg-chip"><span class="tkr">9984</span><span class="chg neg">-2.02%</span></a><a href="https://minkabu.jp/stock/7203" target="_blank" class="chip pos-chip"><span class="tkr">7203</span><span class="chg pos">+0.73%</span></a><a href="https://minkabu.jp/stock/7267" target="_blank" class="chip pos-chip"><span class="tkr">7267</span><span class="chg pos">+1.41%</span></a><a href="https://minkabu.jp/stock/8591" target="_blank" class="chip neg-chip"><span class="tkr">8591</span><span class="chg neg">-0.52%</span></a><a href="https://minkabu.jp/stock/6752" target="_blank" class="chip neg-chip"><span class="tkr">6752</span><span class="chg neg">-0.70%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.22%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:0.56%"></div>
+  <div class="rn">14</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">☀️</span><span class="tnt">太陽光・再エネ（苦戦）</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/6753" target="_blank" class="chip pos-chip"><span class="tkr">6753</span><span class="chg pos">+1.88%</span></a><a href="https://minkabu.jp/stock/9502" target="_blank" class="chip neg-chip"><span class="tkr">9502</span><span class="chg neg">-1.16%</span></a><a href="https://minkabu.jp/stock/9504" target="_blank" class="chip neg-chip"><span class="tkr">9504</span><span class="chg neg">-0.81%</span></a><a href="https://minkabu.jp/stock/9506" target="_blank" class="chip neg-chip"><span class="tkr">9506</span><span class="chg neg">-0.13%</span></a><a href="https://minkabu.jp/stock/7004" target="_blank" class="chip neg-chip"><span class="tkr">7004</span><span class="chg neg">-0.14%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp neg">-0.07%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:0.16%"></div>
+  <div class="rn">15</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">📷</span><span class="tnt">旧来型デジタル機器</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/7751" target="_blank" class="chip pos-chip"><span class="tkr">7751</span><span class="chg pos">+0.86%</span></a><a href="https://minkabu.jp/stock/7731" target="_blank" class="chip neg-chip"><span class="tkr">7731</span><span class="chg neg">-0.58%</span></a><a href="https://minkabu.jp/stock/4902" target="_blank" class="chip neg-chip"><span class="tkr">4902</span><span class="chg neg">-0.27%</span></a><a href="https://minkabu.jp/stock/7740" target="_blank" class="chip neg-chip"><span class="tkr">7740</span><span class="chg neg">-0.29%</span></a><a href="https://minkabu.jp/stock/7912" target="_blank" class="chip pos-chip"><span class="tkr">7912</span><span class="chg pos">+0.39%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.02%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:3.28%"></div>
+  <div class="rn">16</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🏬</span><span class="tnt">旧来型小売・百貨店</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/3382" target="_blank" class="chip neg-chip"><span class="tkr">3382</span><span class="chg neg">-0.03%</span></a><a href="https://minkabu.jp/stock/9843" target="_blank" class="chip pos-chip"><span class="tkr">9843</span><span class="chg pos">+0.00%</span></a><a href="https://minkabu.jp/stock/3099" target="_blank" class="chip pos-chip"><span class="tkr">3099</span><span class="chg pos">+0.71%</span></a><a href="https://minkabu.jp/stock/8233" target="_blank" class="chip pos-chip"><span class="tkr">8233</span><span class="chg pos">+0.03%</span></a><a href="https://minkabu.jp/stock/7453" target="_blank" class="chip pos-chip"><span class="tkr">7453</span><span class="chg pos">+1.36%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.41%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:4.0%"></div>
+  <div class="rn">17</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🔩</span><span class="tnt">鉄鋼</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/5401" target="_blank" class="chip pos-chip"><span class="tkr">5401</span><span class="chg pos">+0.07%</span></a><a href="https://minkabu.jp/stock/5411" target="_blank" class="chip pos-chip"><span class="tkr">5411</span><span class="chg pos">+0.06%</span></a><a href="https://minkabu.jp/stock/5423" target="_blank" class="chip pos-chip"><span class="tkr">5423</span><span class="chg pos">+0.29%</span></a><a href="https://minkabu.jp/stock/5444" target="_blank" class="chip pos-chip"><span class="tkr">5444</span><span class="chg pos">+0.96%</span></a><a href="https://minkabu.jp/stock/5471" target="_blank" class="chip pos-chip"><span class="tkr">5471</span><span class="chg pos">+1.11%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.50%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:4.16%"></div>
+  <div class="rn">18</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">🚢</span><span class="tnt">海運</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9104" target="_blank" class="chip neg-chip"><span class="tkr">9104</span><span class="chg neg">-0.39%</span></a><a href="https://minkabu.jp/stock/9101" target="_blank" class="chip pos-chip"><span class="tkr">9101</span><span class="chg pos">+1.76%</span></a><a href="https://minkabu.jp/stock/9107" target="_blank" class="chip pos-chip"><span class="tkr">9107</span><span class="chg pos">+0.63%</span></a><a href="https://minkabu.jp/stock/9110" target="_blank" class="chip pos-chip"><span class="tkr">9110</span><span class="chg pos">+2.46%</span></a><a href="https://minkabu.jp/stock/9119" target="_blank" class="chip neg-chip"><span class="tkr">9119</span><span class="chg neg">-1.87%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.52%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:5.44%"></div>
+  <div class="rn">19</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">✈️</span><span class="tnt">クルーズ・旅行（景気敏感）</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/9202" target="_blank" class="chip pos-chip"><span class="tkr">9202</span><span class="chg pos">+0.10%</span></a><a href="https://minkabu.jp/stock/9201" target="_blank" class="chip neg-chip"><span class="tkr">9201</span><span class="chg neg">-1.10%</span></a><a href="https://minkabu.jp/stock/9603" target="_blank" class="chip pos-chip"><span class="tkr">9603</span><span class="chg pos">+0.97%</span></a><a href="https://minkabu.jp/stock/4680" target="_blank" class="chip pos-chip"><span class="tkr">4680</span><span class="chg pos">+0.62%</span></a><a href="https://minkabu.jp/stock/6098" target="_blank" class="chip pos-chip"><span class="tkr">6098</span><span class="chg pos">+2.81%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+0.68%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div>
+<div class="item cold">
+  <div class="bg-bar" style="width:13.28%"></div>
+  <div class="rn">20</div>
+  <div class="ti">
+    <div class="tn"><span class="tic">📰</span><span class="tnt">紙・パルプ</span></div>
+    <div class="chips"><a href="https://minkabu.jp/stock/3861" target="_blank" class="chip pos-chip"><span class="tkr">3861</span><span class="chg pos">+1.31%</span></a><a href="https://minkabu.jp/stock/3863" target="_blank" class="chip pos-chip"><span class="tkr">3863</span><span class="chg pos">+1.18%</span></a><a href="https://minkabu.jp/stock/3880" target="_blank" class="chip pos-chip"><span class="tkr">3880</span><span class="chg pos">+1.72%</span></a><a href="https://minkabu.jp/stock/3865" target="_blank" class="chip pos-chip"><span class="tkr">3865</span><span class="chg pos">+0.90%</span></a><a href="https://minkabu.jp/stock/3877" target="_blank" class="chip pos-chip"><span class="tkr">3877</span><span class="chg pos">+3.21%</span></a></div>
+  </div>
+  <div class="ret">
+    <div class="rp pos">+1.66%</div>
+    <div class="rl">テーマ平均</div>
+  </div>
+</div></div>
+</div>
+<div class="disc">
+  ⚠️ 本ページは情報提供目的のみ。騰落率は yfinance 経由の参考値（前日終値比）。テーマ平均は構成銘柄の単純平均。投資は自己判断・自己責任で。
+</div>
+<script>
+function sw(t){
+  document.getElementById('ph').classList.toggle('active',t==='hot');
+  document.getElementById('pc').classList.toggle('active',t==='cold');
+  document.getElementById('th').className='tab'+(t==='hot'?' hot':'');
+  document.getElementById('tc').className='tab'+(t==='cold'?' cold':'');
+}
+</script>
+</body>
+</html>
